@@ -13,7 +13,7 @@ La idea es que los dos mundos convivan sin mezclarse visualmente. Por eso hay do
 - **Paleta clara (azul/violeta):** para la parte de frontend. Proyectos, skills, sección "de dónde vengo".
 - **Paleta oscura (negro/rojo):** para la parte de diseño gráfico. Vinilos, cartelería, web de la banda.
 
-No hay botón de cambio de tema. El propio scroll hace la transición.
+Hay botón de transicion "agresiva". El boton "Wildside" está concebido para que llame la atención y sea lo primero que el visitante visite. Si no es así, el propio scroll lo llevará hasta ahí. 
 
 ---
 
