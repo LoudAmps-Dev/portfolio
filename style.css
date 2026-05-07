@@ -195,6 +195,7 @@ img { max-width: 100%; display: block; }
   .nav-links a.nav-wildside,
   .transicion-title { animation: none; }
   .transicion-arrow { animation: none; }
+  .flare { animation: none; opacity: 0.5; }
 }
 
 /* ── HERO ── */
@@ -204,6 +205,115 @@ img { max-width: 100%; display: block; }
   align-items: center;
   background: var(--pro-bg);
   padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HERO FLARES ── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flare {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.flare-1 {
+  width: clamp(420px, 58vw, 760px);
+  height: clamp(420px, 58vw, 760px);
+  background: radial-gradient(circle, rgba(127,119,221,0.55) 0%, transparent 65%);
+  filter: blur(60px);
+  top: -25%;
+  right: -8%;
+  animation:
+    flare-appear 2.5s 0.3s ease both,
+    flare-drift-1 9s 0.3s ease-in-out infinite;
+}
+
+.flare-2 {
+  width: clamp(300px, 42vw, 580px);
+  height: clamp(300px, 42vw, 580px);
+  background: radial-gradient(circle, rgba(83,74,183,0.45) 0%, transparent 65%);
+  filter: blur(70px);
+  bottom: -8%;
+  left: -8%;
+  animation:
+    flare-appear 2.5s 0.8s ease both,
+    flare-drift-2 11s 0.8s ease-in-out infinite;
+}
+
+.flare-3 {
+  width: clamp(200px, 28vw, 400px);
+  height: clamp(200px, 28vw, 400px);
+  background: radial-gradient(circle, rgba(127,119,221,0.35) 0%, transparent 65%);
+  filter: blur(50px);
+  top: 38%;
+  right: 26%;
+  animation:
+    flare-appear 2.5s 1.3s ease both,
+    flare-drift-3 7s 1.3s ease-in-out infinite;
+}
+
+.flare-4 {
+  width: clamp(280px, 36vw, 500px);
+  height: clamp(280px, 36vw, 500px);
+  background: radial-gradient(circle, rgba(83,74,183,0.38) 0%, transparent 65%);
+  filter: blur(65px);
+  top: 15%;
+  left: 15%;
+  animation:
+    flare-appear 2.5s 0.6s ease both,
+    flare-drift-4 13s 0.6s ease-in-out infinite;
+}
+
+@keyframes flare-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes flare-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  20%  { transform: translate(-250px, 180px) scale(0.93); }
+  40%  { transform: translate(-180px, 320px) scale(1.1); }
+  65%  { transform: translate(-320px, 220px) scale(0.95); }
+  85%  { transform: translate(-120px, 100px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes flare-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  20%  { transform: translate(240px, -180px) scale(0.93); }
+  40%  { transform: translate(180px, -340px) scale(1.1); }
+  65%  { transform: translate(320px, -200px) scale(0.94); }
+  85%  { transform: translate(110px, -90px) scale(1.09); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes flare-drift-3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(-200px, -150px) scale(1.12); }
+  50%  { transform: translate(60px, 200px) scale(0.9); }
+  75%  { transform: translate(180px, 60px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes flare-drift-4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(200px, 100px) scale(1.1); }
+  50%  { transform: translate(300px, -80px) scale(0.92); }
+  75%  { transform: translate(100px, -200px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 .hero-tag {
