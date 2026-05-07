@@ -209,7 +209,7 @@ const translations = {
     designEyebrow: 'Since 2015',
     designTitle: 'Graphic design for<br>hard rock bands.',
     designBody: 'Posters, identities and complete print-ready layouts. Vinyl and CD covers, inserts and booklets. Reels, lyric videos and music video editing from raw footage.',
-    statLabel1: 'Albums designed',
+    statLabel1: 'Albums recorded',
     statLabel2: 'Countries rocked',
     statLabel3: 'Km in the van',
     statLabel4: 'Life experience',

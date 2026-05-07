@@ -19,7 +19,7 @@
   --music-dim: #444444;
 
   --font-pro: 'Space Grotesk', sans-serif;
-  --font-music: 'Bebas Neue', sans-serif;
+  --font-music: 'Bebas Neue', system-ui, sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
 
@@ -670,6 +670,11 @@ section { padding: 6rem 0; }
   line-height: 1;
   letter-spacing: .04em;
   font-variant-numeric: tabular-nums;
+}
+
+/* Bebas Neue no tiene el glifo ∞ — forzar fuente con soporte completo */
+.stat[data-static="∞"] .stat-number {
+  font-family: 'DM Sans', Arial, sans-serif;
 }
 
 .stat-label {
