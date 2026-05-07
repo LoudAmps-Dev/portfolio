@@ -8,19 +8,12 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Scroll suave para los links del nav
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
 
 // Reinicia el glitch del título cada vez que la sección Wildside entra en pantalla
 new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const title = entry.target.querySelector('.transicion-title');
     title.style.animation = 'none';
     title.offsetHeight;
@@ -113,3 +106,24 @@ stats.forEach(stat => observer.observe(stat));
 
   setTimeout(type, 300);
 }());
+
+// ── MENÚ MÓVIL ──
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navbar = document.getElementById('navbar');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navbar.classList.toggle('is-open');
+  navLinks.classList.toggle('is-open');
+  navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Cerrar el menú al hacer clic en cualquier link
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navbar.classList.remove('is-open');
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-label', 'Abrir menú');
+  });
+});

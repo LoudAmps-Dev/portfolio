@@ -13,7 +13,7 @@ La idea es que los dos mundos convivan sin mezclarse visualmente. Por eso hay do
 - **Paleta clara (azul/violeta):** para la parte de frontend. Proyectos, skills, sección "de dónde vengo".
 - **Paleta oscura (negro/rojo):** para la parte de diseño gráfico. Vinilos, cartelería, web de la banda.
 
-Hay botón de transicion "agresiva". El boton "Wildside" está concebido para que llame la atención y sea lo primero que el visitante visite. Si no es así, el propio scroll lo llevará hasta ahí. 
+No hay botón de cambio de tema. El propio scroll hace la transición.
 
 ---
 
@@ -40,9 +40,10 @@ Nombre con efecto typewriter al cargar. El texto de presentación y los botones 
 Sección de presentación. Explica el recorrido: diseño gráfico desde 2015, frontend desde 2026. Las etiquetas de skills son interactivas (hover con transición de color).
 
 ### Proyectos
-Dos tarjetas por ahora:
+Tres tarjetas:
 - **Esta web** — el propio portfolio.
 - **Best Nutrition** — web multi-página para una clínica de nutrición con sistema de reserva de citas: selección de servicio, calendario, franjas horarias, validación en cliente y confirmación en tiempo real.
+- **Riffs on Time** — herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF. Demo en [riffsontime.netlify.app](https://riffsontime.netlify.app/).
 
 ### Wildside (transición)
 Sección de separación entre los dos mundos. Usa una foto de concierto como fondo con un degradado de blanco a negro. El título "WILDSIDE" tiene una animación de glitch que se reinicia cada vez que la sección entra en pantalla (IntersectionObserver).

@@ -5,7 +5,7 @@
   --pro-accent: #7f77dd;
   --pro-accent-strong: #534ab7;
   --pro-title: #26215c;
-  --pro-secondary: #888780;
+  --pro-secondary: #5f5d58;
   --pro-border: #e8e6ff;
 
   --music-bg: #000000;
@@ -25,13 +25,15 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 body { font-family: var(--font-body); background: var(--pro-bg); color: var(--pro-title); overflow-x: hidden; }
 a { text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 /* ── CONTAINER ── */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
 
 /* ── NAVBAR ── */
 .navbar {
@@ -239,6 +241,7 @@ img { max-width: 100%; display: block; }
   background: var(--pro-accent-strong);
   color: white;
   padding: .85rem 2rem;
+  min-height: 44px;
   border-radius: 8px;
   font-weight: 600;
   font-size: .95rem;
@@ -251,6 +254,7 @@ img { max-width: 100%; display: block; }
   border: 1.5px solid var(--pro-border);
   color: var(--pro-title);
   padding: .85rem 2rem;
+  min-height: 44px;
   border-radius: 8px;
   font-weight: 500;
   font-size: .95rem;
@@ -332,7 +336,7 @@ section { padding: 6rem 0; }
 
 .proyecto-img { height: 220px; background: var(--pro-bg); }
 
-.proyecto-info { padding: 1.5rem; flex: 1; }
+.proyecto-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
 .proyecto-info h3 {
   font-family: var(--font-pro);
@@ -451,7 +455,7 @@ section { padding: 6rem 0; }
 .design-body {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.82);
   line-height: 1.75;
   max-width: 540px;
   margin-bottom: 3rem;
@@ -503,32 +507,11 @@ section { padding: 6rem 0; }
   transition: transform 0.3s;
 }
 
-/* SECCIÓN DESHABILITADA TEMPORALMENTE - AUDIOVISUAL */
-/* .design-img--video { height: 180px; } */
-/* FIN SECCIÓN DESHABILITADA - AUDIOVISUAL */
 .design-img--web   { height: 220px; }
 .design-img--vinyl {
   height: auto;
   aspect-ratio: 1 / 1;
 }
-.design-img--vinyl img { object-fit: cover; }
-
-/* SECCIÓN DESHABILITADA TEMPORALMENTE - CARTELERÍA */
-/*
-.design-img--poster {
-  overflow: hidden;
-  position: relative;
-}
-
-.design-img--poster img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-*/
-/* FIN SECCIÓN DESHABILITADA - CARTELERÍA */
 
 .design-item:hover .design-img { transform: scale(1.03); }
 
@@ -616,6 +599,7 @@ section { padding: 6rem 0; }
   border: 1.5px solid var(--music-border);
   color: var(--music-text);
   padding: .75rem 1.8rem;
+  min-height: 44px;
   border-radius: 6px;
   font-size: .9rem;
   font-weight: 500;
@@ -681,6 +665,7 @@ section { padding: 6rem 0; }
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .proyecto-link-secondary {
@@ -712,9 +697,77 @@ button:focus-visible {
   border-radius: 4px;
 }
 
+/* ── HAMBURGUESA ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--pro-title);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+/* Animación a X cuando el menú está abierto */
+.navbar.is-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar.is-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.navbar.is-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .design-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .proyectos-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--pro-border);
+    padding: 1rem 0;
+  }
+
+  .nav-links.is-open { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    display: block;
+    padding: .85rem 2rem;
+    font-size: 1rem;
+  }
+
+  .nav-links a.nav-wildside {
+    margin: .5rem 2rem;
+    display: block;
+    text-align: center;
+  }
+
   .design-grid,
   .design-grid--3,
   .design-grid--4 { grid-template-columns: 1fr; }

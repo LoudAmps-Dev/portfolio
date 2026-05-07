@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Dependencias (por si se instala algo en el futuro)
+node_modules/
+
+# Variables de entorno (nunca subir al repo)
+.env

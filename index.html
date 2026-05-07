@@ -9,8 +9,11 @@
   <meta property="og:title" content="Dani Meseguer — Frontend Developer">
   <meta property="og:description" content="Desarrollador Frontend con amplia experiencia en diseño visual y branding.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loudamps-dev.github.io/portfolio/">
+  <meta property="og:image" content="https://loudamps-dev.github.io/portfolio/img/captura-portfolio.png">
 
   <title>Dani Meseguer — Frontend Developer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <!-- Fuentes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,17 +26,24 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navegación principal">
     <div class="navbar-inner">
       <a href="#hero" class="nav-logo">Dani Meseguer<span>.</span></a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#sobre-mi">De Dónde Vengo</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contacto" class="nav-cta">Contacto</a></li>
         <li><a href="#transicion" class="nav-wildside">Wildside</a></li>
       </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <main>
 
   <!-- HERO -->
   <section class="hero" id="hero">
@@ -84,20 +94,23 @@
       <h2 class="section-title">Lo que he construido</h2>
       <div class="proyectos-grid">
 
-        <article class="proyecto-card">
+  <article class="proyecto-card">
           <div class="proyecto-img">
-            <img src="img/captura-portfolio.png" alt="Captura de esta web" loading="lazy">
+            <img src="img/rotlogo.png" alt="Captura de Riffs on Time" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <h3>Esta web</h3>
-            <p>La página que estás mirando. Sin frameworks, sin librerías. Dos paletas porque son dos trabajos distintos.</p>
+            <h3>Riffs on Time</h3>
+            <p>Herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF.</p>
             <div class="proyecto-tags">
               <span class="tag-small">HTML5</span>
               <span class="tag-small">CSS3</span>
               <span class="tag-small">JavaScript</span>
-              <span class="tag-small">GitHub</span>
+              <span class="tag-small">Spotify API</span>
             </div>
-            <a href="https://github.com/LoudAmps-Dev/Portfolio" target="_blank" rel="noopener noreferrer" class="proyecto-link">Ver código →</a>
+            <div class="proyecto-links">
+              <a href="https://riffsontime.netlify.app/" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver demo de Riffs on Time">Ver demo →</a>
+              <a href="https://github.com/LoudAmps-Dev/riffsonfire" target="_blank" rel="noopener noreferrer" class="proyecto-link-secondary" aria-label="Ver código de Riffs on Time">Ver código →</a>
+            </div>
           </div>
         </article>
 
@@ -115,8 +128,27 @@
               <span class="tag-small">Responsive</span>
             </div>
             <div class="proyecto-links">
-              <a href="https://loudamps-dev.github.io/practica-clinica-best-nutrition/index.html" target="_blank" rel="noopener noreferrer" class="proyecto-link">Ver demo →</a>
-              <a href="https://github.com/LoudAmps-Dev/practica-clinica-best-nutrition" target="_blank" rel="noopener noreferrer" class="proyecto-link-secondary">Ver código →</a>
+              <a href="https://loudamps-dev.github.io/practica-clinica-best-nutrition/index.html" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver demo de Best Nutrition">Ver demo →</a>
+              <a href="https://github.com/LoudAmps-Dev/practica-clinica-best-nutrition" target="_blank" rel="noopener noreferrer" class="proyecto-link-secondary" aria-label="Ver código de Best Nutrition">Ver código →</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="proyecto-card">
+          <div class="proyecto-img">
+            <img src="img/captura-portfolio.png" alt="Captura de esta web" loading="lazy">
+          </div>
+          <div class="proyecto-info">
+            <h3>Esta web</h3>
+            <p>La página que estás mirando. Sin frameworks, sin librerías. Dos paletas porque son dos trabajos distintos.</p>
+            <div class="proyecto-tags">
+              <span class="tag-small">HTML5</span>
+              <span class="tag-small">CSS3</span>
+              <span class="tag-small">JavaScript</span>
+              <span class="tag-small">GitHub</span>
+            </div>
+            <div class="proyecto-links">
+              <a href="https://github.com/LoudAmps-Dev/Portfolio" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver código de esta web">Ver código →</a>
             </div>
           </div>
         </article>
@@ -170,21 +202,21 @@
           <div class="design-grid design-grid--3">
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-while-passion-lasts-lp-neon-green~2.webp" alt="Hitten — While Passion Lasts" loading="lazy">
+                <img src="img/hitten-while-passion-lasts-lp-neon-green~2.webp" alt="" loading="lazy">
               </div>
               <span class="design-label">Hitten — While Passion Lasts</span>
               <span class="design-sublabel">Maquetación completa</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-triumph-tragedy-lp-black-2nd-pressing-4251267713882~2.webp" alt="Hitten — Triumph and Tragedy" loading="lazy">
+                <img src="img/hitten-triumph-tragedy-lp-black-2nd-pressing-4251267713882~2.webp" alt="" loading="lazy">
               </div>
               <span class="design-label">Hitten — Triumph and Tragedy</span>
               <span class="design-sublabel">Maquetación completa</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-twist-of-fate-lp-galaxy~2.webp" alt="Hitten — Twist of Fate" loading="lazy">
+                <img src="img/hitten-twist-of-fate-lp-galaxy~2.webp" alt="" loading="lazy">
               </div>
               <span class="design-label">Hitten — Twist of Fate</span>
               <span class="design-sublabel">Maquetación completa</span>
@@ -192,53 +224,6 @@
           </div>
         </div>
 
-        <!-- SECCIÓN DESHABILITADA TEMPORALMENTE - CARTELERÍA
-        <div class="design-category">
-          <span class="design-cat-label" hidden>Cartelería</span>
-          <div class="design-grid design-grid--3" hidden>
-            <div class="design-item">
-              <div class="design-img design-img--poster">
-                <img src="img/hitten-europa-2026.png" alt="Cartel gira europea 2026 - Hitten" loading="lazy">
-              </div>
-              <span class="design-label">Cartel gira europea 2026</span>
-            </div>
-            <div class="design-item">
-              <div class="design-img design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Special guest para Europe</span>
-            </div>
-            <div class="design-item">
-              <div class="design-img design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Special guest gira HEAT 2026</span>
-            </div>
-          </div>
-          <p class="section-soon">Próximamente</p>
-        </div>
-        FIN SECCIÓN DESHABILITADA - CARTELERÍA -->
-
-        <!-- SECCIÓN DESHABILITADA TEMPORALMENTE - AUDIOVISUAL
-        <div class="design-category">
-          <span class="design-cat-label" hidden>Audiovisual</span>
-          <div class="design-grid design-grid--4" hidden>
-            <div class="design-item">
-              <div class="design-img design-img--video design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Reel lanzamiento single</span>
-            </div>
-            <div class="design-item">
-              <div class="design-img design-img--video design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Reel Instagram - Hitten</span>
-            </div>
-            <div class="design-item">
-              <div class="design-img design-img--video design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Videoclip oficial</span>
-            </div>
-            <div class="design-item">
-              <div class="design-img design-img--video design-img--empty"><span class="coming-soon">Próximamente</span></div>
-              <span class="design-label">Lyric video</span>
-            </div>
-          </div>
-          <p class="section-soon">Próximamente</p>
-        </div>
-        FIN SECCIÓN DESHABILITADA - AUDIOVISUAL -->
 
         <!-- WEB -->
         <div class="design-category">
@@ -281,6 +266,8 @@
       <p>© 2026 Dani Meseguer. Hecho en Murcia 🍋</p>
     </footer>
   </section>
+
+  </main>
 
   <!-- JS -->
   <script src="script.js"></script>
