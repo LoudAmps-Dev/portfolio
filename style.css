@@ -363,7 +363,7 @@ img { max-width: 100%; display: block; }
   color: var(--pro-secondary);
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  max-width: 480px;
+  max-width: min(480px, 58ch);
   opacity: 0;
 }
 
