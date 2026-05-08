@@ -879,7 +879,7 @@ button:focus-visible {
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-toggle { display: flex; }
 
   .navbar-inner {
