@@ -112,21 +112,54 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── WILDSIDE (pastilla negra con texto rojo glitcheando) ── */
-.nav-links a.nav-wildside {
-  font-family: var(--font-music);
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  color: var(--music-red);
-  background: var(--music-bg);
-  padding: .35rem 1rem;
-  border-radius: 6px;
-  display: inline-block;
-  animation: wildside-distort 4s infinite;
+.wildside-teaser {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 1.5px solid var(--pro-border);
+  color: var(--pro-secondary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin-top: 2.5rem;
+  transition: none;
 }
 
-.nav-links a.nav-wildside:hover {
+.wildside-teaser:hover {
+  background: var(--music-bg);
+  border-color: var(--music-border);
+  transition: none;
+}
+
+.wildside-default {
+  position: relative;
+  z-index: 1;
+}
+
+.wildside-teaser:hover .wildside-default { opacity: 0; }
+
+.wildside-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-music);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
   color: var(--music-red);
-  animation-duration: 1.2s;
+  opacity: 0;
+  animation: wildside-distort 4s infinite;
+  animation-play-state: paused;
+}
+
+.wildside-teaser:hover .wildside-hover {
+  opacity: 1;
+  animation-play-state: running;
 }
 
 @keyframes wildside-distort {
@@ -197,10 +230,10 @@ img { max-width: 100%; display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-links a.nav-wildside,
   .transicion-title { animation: none; }
   .transicion-arrow { animation: none; }
   .flare { animation: none; opacity: 0.5; }
+  .wildside-hover { animation: none; }
 }
 
 /* ── HERO ── */
@@ -969,12 +1002,6 @@ button:focus-visible {
     display: block;
     padding: .85rem 2rem;
     font-size: 1rem;
-  }
-
-  .nav-links a.nav-wildside {
-    margin: .5rem 2rem;
-    display: block;
-    text-align: center;
   }
 
   .design-grid,
