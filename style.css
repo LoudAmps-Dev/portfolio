@@ -470,6 +470,10 @@ section { padding: 6rem 0; }
 }
 
 /* ── SOBRE MÍ ── */
+#sobre-mi {
+  scroll-margin-top: -16px;
+}
+
 .sobre-mi {
   background: var(--pro-surface);
   position: relative;
