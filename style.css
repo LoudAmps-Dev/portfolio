@@ -356,6 +356,8 @@ img { max-width: 100%; display: block; }
   50%       { opacity: 0; }
 }
 
+.hero-title.typing-done::after { display: none; }
+
 .hero-subtitle {
   font-size: 1.2rem;
   color: var(--pro-secondary);

@@ -91,6 +91,7 @@ stats.forEach(stat => observer.observe(stat));
   let idx = 0;
   function type() {
     if (idx >= tokens.length) {
+      title.classList.add('typing-done');
       setTimeout(() => {
         title.style.opacity = '1';
         title.classList.remove('typing');
