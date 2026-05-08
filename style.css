@@ -113,25 +113,27 @@ img { max-width: 100%; display: block; }
 
 /* ── WILDSIDE (pastilla negra con texto rojo glitcheando) ── */
 .wildside-teaser {
-  position: relative;
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  max-width: 500px;
+  white-space: nowrap;
+  text-align: center;
   background: transparent;
   border: 1.5px solid var(--pro-border);
   color: var(--pro-secondary);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 3rem;
   border-radius: 8px;
-  margin-top: 2.5rem;
-  transition: max-width 250ms ease;
+  transition: padding-left 250ms ease, padding-right 250ms ease;
 }
 
 .wildside-teaser:hover {
-  max-width: 140px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
   background: var(--music-bg);
   border-color: var(--music-border);
 }
@@ -468,7 +470,12 @@ section { padding: 6rem 0; }
 }
 
 /* ── SOBRE MÍ ── */
-.sobre-mi { background: var(--pro-surface); }
+.sobre-mi {
+  background: var(--pro-surface);
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
 
 .sobre-mi-text {
   font-size: 1.1rem;
