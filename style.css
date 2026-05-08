@@ -442,7 +442,20 @@ section { padding: 6rem 0; }
   margin-bottom: 2rem;
 }
 
-.skills-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+.skills-tags { display: flex; flex-direction: column; gap: 0; }
+
+.skills-group { margin-bottom: 1rem; }
+
+.skills-category {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--pro-secondary);
+  margin-bottom: .5rem;
+}
+
+.skills-group-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
 
 .tag {
   background: white;
