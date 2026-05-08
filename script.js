@@ -254,3 +254,25 @@ document.getElementById('langToggle').addEventListener('click', () => {
 });
 
 applyTranslations(currentLang);
+
+// ── NAV ACTIVO AL HACER SCROLL ──
+const navSections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-links a');
+
+const setActiveNavLink = (id) => {
+  navLinksAll.forEach(link => {
+    if (link.getAttribute('href') === '#' + id) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+};
+
+const activeNavObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) setActiveNavLink(entry.target.id);
+  });
+}, { threshold: 0.4 });
+
+navSections.forEach(section => activeNavObserver.observe(section));
