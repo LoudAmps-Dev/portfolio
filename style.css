@@ -735,6 +735,49 @@ section { padding: 6rem 0; }
 }
 
 /* ── CONTACTO ── */
+/* ── CONTACTO PRO ── */
+.contacto-pro {
+  background: var(--pro-surface);
+  border-top: 1px solid var(--pro-border);
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.contacto-pro-title {
+  font-family: var(--font-pro);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--pro-title);
+  margin-bottom: .75rem;
+}
+
+.contacto-pro-desc {
+  font-size: 1rem;
+  color: var(--pro-secondary);
+  margin-bottom: 2.5rem;
+  max-width: min(480px, 58ch);
+  margin-inline: auto;
+}
+
+.contacto-pro-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.contacto-pro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--pro-border);
+  color: var(--pro-title);
+  padding: .75rem 1.8rem;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.contacto-pro-btn:hover { border-color: var(--pro-accent); color: var(--pro-accent); }
+
+/* ── CONTACTO FINAL (cierre narrativo, paleta negra) ── */
 .contacto {
   background: var(--music-bg);
   border-top: 1px solid var(--music-border);
