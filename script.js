@@ -177,6 +177,7 @@ const translations = {
     contactoTitle: 'Hablamos',
     contactoDesc: 'Busco mi primera oportunidad profesional como desarrollador frontend. Once años de criterio visual aplicados desde el primer commit. ¿Hablamos?',
     contactoFinalDesc: 'Diseñador que aprendió a programar. O programador que nunca dejó de diseñar.',
+    wildsideTeaser: 'Hay más historia aquí',
     footer: '© 2026 Dani Meseguer. Hecho en Murcia 🍋',
   },
   en: {
@@ -224,6 +225,7 @@ const translations = {
     contactoTitle: "Let's talk",
     contactoDesc: "I'm looking for my first professional opportunity as a frontend developer. Eleven years of visual judgment applied from the first commit. Shall we talk?",
     contactoFinalDesc: 'A designer who learned to code. Or a developer who never stopped designing.',
+    wildsideTeaser: 'There is more story here',
     footer: '© 2026 Dani Meseguer. Made in Murcia 🍋',
   }
 };
