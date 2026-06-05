@@ -264,6 +264,11 @@ const translations = {
     contactoFinalDesc: 'Diseñador que aprendió a programar. O programador que nunca dejó de diseñar.',
     backToTop: '↑ Volver arriba',
     footer: '© 2026 Dani Meseguer. Hecho en Murcia 🍋',
+    skillsCatSoft: 'Soft Skills',
+    skillSoft1: 'Criterio visual',
+    skillSoft2: 'Autonomía',
+    skillSoft3: 'Comunicación',
+    skillSoft4: 'Precisión',
   },
   en: {
     navAbout: 'My Background',
@@ -320,6 +325,11 @@ const translations = {
     contactoFinalDesc: 'A designer who learned to code. Or a developer who never stopped designing.',
     backToTop: '↑ Back to top',
     footer: '© 2026 Dani Meseguer. Made in Murcia 🍋',
+    skillsCatSoft: 'Soft Skills',
+    skillSoft1: 'Visual judgment',
+    skillSoft2: 'Autonomy',
+    skillSoft3: 'Communication',
+    skillSoft4: 'Precision',
   }
 };
 
