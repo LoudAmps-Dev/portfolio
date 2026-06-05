@@ -370,6 +370,36 @@ section { padding: 6rem 0; }
   padding-bottom: 6rem;
 }
 
+.sobre-mi-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.sobre-mi-photo {
+  position: sticky;
+  top: 100px;
+}
+
+.perfil-img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .sobre-mi-layout {
+    grid-template-columns: 1fr;
+  }
+  .sobre-mi-photo {
+    position: static;
+    max-width: 180px;
+    margin: 0 auto 2rem;
+    order: -1;
+  }
+}
+
 .sobre-mi-text {
   font-size: 1.1rem;
   color: var(--pro-secondary);
