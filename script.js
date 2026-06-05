@@ -110,11 +110,11 @@ stats.forEach(stat => observer.observe(stat));
 
 // ── CARDS — entrada escalonada con IntersectionObserver ──
 const cards = document.querySelectorAll('.proyecto-card');
+const cardIndex = new Map([...cards].map((card, i) => [card, i]));
 const cardObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const idx = [...cards].indexOf(entry.target);
-    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : idx * 130;
+    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : cardIndex.get(entry.target) * 130;
     setTimeout(() => entry.target.classList.add('card-visible'), delay);
     cardObserver.unobserve(entry.target);
   });
@@ -355,7 +355,11 @@ if (transicion && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const offset = 50 + progress * 20;
     transicion.style.backgroundPosition = `center center, center ${offset}%`;
   };
-  window.addEventListener('scroll', parallaxTransicion, { passive: true });
+  let rafId;
+  window.addEventListener('scroll', () => {
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(parallaxTransicion);
+  }, { passive: true });
   parallaxTransicion();
 }
 

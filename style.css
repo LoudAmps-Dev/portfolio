@@ -250,6 +250,9 @@ img { max-width: 100%; display: block; }
   .wildside-hover { animation: none; }
   .hero-scroll-line { animation: none; }
   .tl-fill { transition: none; }
+  .hero-tag.reveal,
+  .hero-subtitle.reveal,
+  .hero-ctas.reveal { animation: none; opacity: 1; }
 }
 
 /* ── HERO ── */
@@ -423,8 +426,10 @@ section { padding: 6rem 0; }
 }
 
 /* ── SOBRE MÍ ── */
-#sobre-mi {
-  scroll-margin-top: -16px;
+#sobre-mi,
+#proyectos,
+#contacto {
+  scroll-margin-top: 80px;
 }
 
 .sobre-mi {
@@ -881,7 +886,6 @@ section { padding: 6rem 0; }
 }
 
 .design-grid--3 { grid-template-columns: repeat(3, 1fr); }
-.design-grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 .design-item { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
 
@@ -1003,7 +1007,7 @@ section { padding: 6rem 0; }
   border-radius: 6px;
   font-size: .9rem;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .contacto-pro-btn:hover { border-color: var(--pro-accent); color: var(--pro-accent); }
@@ -1025,24 +1029,6 @@ section { padding: 6rem 0; }
 }
 
 .contacto-desc { font-size: 1rem; color: var(--music-secondary); margin-bottom: 2.5rem; }
-
-.contacto-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-.contacto-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1.5px solid var(--music-border);
-  color: var(--music-text);
-  padding: .75rem 1.8rem;
-  min-height: 44px;
-  border-radius: 6px;
-  font-size: .9rem;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.contacto-btn:hover { border-color: var(--music-red); color: var(--music-red); }
 
 .footer {
   margin-top: 4rem;
