@@ -1,6 +1,5 @@
 // Navbar — se oscurece al hacer scroll
 window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
   if (window.scrollY > 50) {
     navbar.style.boxShadow = '0 2px 20px rgba(83,74,183,0.08)';
   } else {
