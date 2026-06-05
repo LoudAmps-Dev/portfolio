@@ -46,6 +46,10 @@ img { max-width: 100%; display: block; }
   transition: box-shadow 0.3s;
 }
 
+.navbar--scrolled {
+  box-shadow: 0 2px 20px rgba(83,74,183,0.08);
+}
+
 .navbar-inner {
   padding: 0 clamp(1.5rem, 5vw, 3rem);
   height: 64px;
