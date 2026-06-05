@@ -1210,7 +1210,7 @@ button:focus-visible {
 
   section { padding: 4rem 0; }
   .sobre-mi { min-height: auto; padding-bottom: 7rem; }
-  .contacto-pro { min-height: auto; padding: 5rem 0; }
+  .contacto-pro { min-height: 100vh; padding: 5rem 0; }
   .loudamps-design .container { padding-top: 3rem; padding-bottom: 3rem; }
 
   .design-grid--3 {
