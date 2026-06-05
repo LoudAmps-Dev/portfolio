@@ -386,6 +386,7 @@ section { padding: 6rem 0; }
   width: 100%;
   border-radius: 12px;
   display: block;
+  box-shadow: 6px 6px 0 var(--pro-accent);
 }
 
 @media (max-width: 900px) {
@@ -394,9 +395,13 @@ section { padding: 6rem 0; }
   }
   .sobre-mi-photo {
     position: static;
-    max-width: 180px;
-    margin: 0 auto 2rem;
     order: -1;
+    max-width: 240px;
+    margin: 0 auto 2.5rem;
+  }
+  .perfil-img {
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 var(--pro-accent);
   }
 }
 
