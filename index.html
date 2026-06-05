@@ -18,7 +18,7 @@
   <!-- Fuentes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Syne:wght@400;600;700&family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -49,20 +49,18 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="flare flare-1"></div>
-      <div class="flare flare-2"></div>
-      <div class="flare flare-3"></div>
-      <div class="flare flare-4"></div>
-    </div>
+
     <div class="container">
-      <p class="hero-tag" data-i18n="heroTag">Frontend Developer · Murcia · 2026</p>
+      <p class="hero-tag" data-i18n="heroTag">Frontend Dev · Diseñador Gráfico · Marketing Digital y RRSS</p>
       <h1 class="hero-title">Dani<br>Meseguer</h1>
       <p class="hero-subtitle" data-i18n="heroSubtitle">Once años construyendo identidades visuales para música independiente. Ahora frontend developer — con el criterio de diseño ya incluido.</p>
       <div class="hero-ctas">
         <a href="#proyectos" class="btn-primary" data-i18n="heroCta1">Ver proyectos</a>
         <a href="#contacto" class="btn-secondary" data-i18n="heroCta2">Contacto</a>
       </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
@@ -78,11 +76,28 @@
         final ha pesado siempre más que la titulación.
       </p>
       <p class="sobre-mi-text" data-i18n="aboutText2">
-        En 2026 incorporo el desarrollo frontend a mi perfil. Trabajo con
+        En 2026 incorporo el desarrollo web a mi perfil. Trabajo con
         HTML, CSS y JavaScript, y aplico mi criterio visual desde el primer
         momento del proyecto. Diseñar antes de programar cambia la forma
         de construir una interfaz.
       </p>
+      <div class="timeline" aria-hidden="true">
+        <div class="tl-start">
+          <span class="tl-year">2015</span>
+          <span class="tl-desc">Diseño</span>
+        </div>
+        <div class="tl-track">
+          <div class="tl-fill"></div>
+          <div class="tl-mid-node">
+            <span class="tl-mid-year">2020</span>
+            <span class="tl-mid-desc">Mkt &amp; RRSS</span>
+          </div>
+        </div>
+        <div class="tl-end">
+          <span class="tl-year">2026</span>
+          <span class="tl-desc">Frontend</span>
+        </div>
+      </div>
       <div class="skills-tags">
         <div class="skills-group">
           <p class="skills-category">Desarrollo</p>
@@ -112,15 +127,51 @@
   <!-- PROYECTOS -->
   <section class="proyectos" id="proyectos">
     <div class="container">
-      <span class="section-label" data-i18n="sectionLabelProjects">Trabajo web</span>
-      <h2 class="section-title" data-i18n="sectionTitleProjects">Lo que he construido</h2>
-      <div class="proyectos-grid">
+      <div class="proyectos-header">
+        <div>
+          <span class="section-label" data-i18n="sectionLabelProjects">Trabajo web</span>
+          <h2 class="section-title" data-i18n="sectionTitleProjects">Lo que he construido</h2>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn" id="slidePrev" aria-label="Proyecto anterior" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="slider-btn" id="slideNext" aria-label="Proyecto siguiente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
 
-  <article class="proyecto-card">
+      <div class="proyectos-grid" id="proyectosSlider">
+
+        <article class="proyecto-card">
+          <div class="proyecto-img">
+            <img src="img/captura-portfolio.png" alt="Captura de esta web" loading="lazy">
+          </div>
+          <div class="proyecto-info">
+            <span class="card-num" aria-hidden="true">01</span>
+            <span class="card-badge card-badge--real">Cliente real</span>
+            <h3 data-i18n="card4Title">Esta web</h3>
+            <p data-i18n="card4Desc">Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.</p>
+            <div class="proyecto-tags">
+              <span class="tag-small">HTML5</span>
+              <span class="tag-small">CSS3</span>
+              <span class="tag-small">JavaScript</span>
+              <span class="tag-small">GitHub</span>
+            </div>
+            <div class="proyecto-links">
+              <a href="https://github.com/LoudAmps-Dev/Portfolio" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver código de esta web" data-i18n="cardCode" data-i18n-aria="ariaCode4">Ver código →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proyecto-card">
           <div class="proyecto-img">
             <img src="img/riffsontimelogo.png" alt="Captura de Riffs on Time" loading="lazy">
           </div>
           <div class="proyecto-info">
+            <span class="card-num" aria-hidden="true">02</span>
+            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
             <h3 data-i18n="card1Title">Riffs on Time</h3>
             <p data-i18n="card1Desc">Herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF.</p>
             <div class="proyecto-tags">
@@ -141,6 +192,8 @@
             <img src="img/logoheader.png" alt="Captura de Best Nutrition" loading="lazy">
           </div>
           <div class="proyecto-info">
+            <span class="card-num" aria-hidden="true">03</span>
+            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
             <h3 data-i18n="card2Title">Best Nutrition</h3>
             <p data-i18n="card2Desc">Web multi-página para una clínica de nutrición con sistema de reserva de citas funcional. Selección de servicio, fecha y franja horaria con validación en cliente, gestión de disponibilidad y confirmación de cita en tiempo real.</p>
             <div class="proyecto-tags">
@@ -155,26 +208,36 @@
             </div>
           </div>
         </article>
-        
+
         <article class="proyecto-card">
           <div class="proyecto-img">
-            <img src="img/captura-portfolio.png" alt="Captura de esta web" loading="lazy">
+            <img src="img/clinicaanimals.png" alt="Captura de Clínica Animals" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <h3 data-i18n="card3Title">Esta web</h3>
-            <p data-i18n="card3Desc">Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.</p>
+            <span class="card-num" aria-hidden="true">04</span>
+            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
+            <h3 data-i18n="card3Title">Clínica Animals</h3>
+            <p data-i18n="card3Desc">Web informativa para una clínica veterinaria con bilingüismo catalán/español, estado de apertura en tiempo real y carrusel automático de reseñas. Animaciones con IntersectionObserver, tarjetas de veterinarios con flip 3D en CSS y CTA directo a WhatsApp.</p>
             <div class="proyecto-tags">
               <span class="tag-small">HTML5</span>
               <span class="tag-small">CSS3</span>
               <span class="tag-small">JavaScript</span>
-              <span class="tag-small">GitHub</span>
+              <span class="tag-small">Responsive</span>
             </div>
             <div class="proyecto-links">
-              <a href="https://github.com/LoudAmps-Dev/Portfolio" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver código de esta web" data-i18n="cardCode" data-i18n-aria="ariaCode3">Ver código →</a>
+              <a href="https://loudamps-dev.github.io/clinica-animals/" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver demo de Clínica Animals" data-i18n="cardDemo" data-i18n-aria="ariaDemo3">Ver demo →</a>
+              <a href="https://github.com/LoudAmps-Dev/clinica-animals" target="_blank" rel="noopener noreferrer" class="proyecto-link-secondary" aria-label="Ver código de Clínica Animals" data-i18n="cardCode" data-i18n-aria="ariaCode3">Ver código →</a>
             </div>
           </div>
         </article>
 
+      </div>
+
+      <div class="slider-dots" id="sliderDots">
+        <button class="dot dot--active" data-idx="0" aria-label="Ir al proyecto 1"></button>
+        <button class="dot" data-idx="1" aria-label="Ir al proyecto 2"></button>
+        <button class="dot" data-idx="2" aria-label="Ir al proyecto 3"></button>
+        <button class="dot" data-idx="3" aria-label="Ir al proyecto 4"></button>
       </div>
     </div>
   </section>
@@ -205,7 +268,8 @@
   <section class="transicion" id="transicion">
     <div class="container">
       <h2 class="transicion-title">Wildside</h2>
-      <p class="transicion-desc" data-i18n="transicionDesc">A esto me dedicaba antes del front-end.</p>
+      <span class="transicion-bienvenido">Bienvenid@</span>
+      <p class="transicion-subtitle">Aquí tienes algunos trabajos de diseño gráfico que he realizado.</p>
       <div class="transicion-arrow">↓</div>
     </div>
   </section>
@@ -307,6 +371,8 @@
   </section>
 
   </main>
+
+  <div class="custom-cursor" aria-hidden="true"></div>
 
   <!-- JS -->
   <script src="script.js"></script>

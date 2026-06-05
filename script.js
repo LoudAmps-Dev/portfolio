@@ -108,6 +108,61 @@ stats.forEach(stat => observer.observe(stat));
   setTimeout(type, 300);
 }());
 
+// ── CARDS — entrada escalonada con IntersectionObserver ──
+const cards = document.querySelectorAll('.proyecto-card');
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const idx = [...cards].indexOf(entry.target);
+    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : idx * 130;
+    setTimeout(() => entry.target.classList.add('card-visible'), delay);
+    cardObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.12 });
+cards.forEach(card => cardObserver.observe(card));
+
+// ── SLIDER DE PROYECTOS ──
+(function () {
+  const slider = document.getElementById('proyectosSlider');
+  const prevBtn = document.getElementById('slidePrev');
+  const nextBtn = document.getElementById('slideNext');
+  const dots = document.querySelectorAll('#sliderDots .dot');
+  if (!slider) return;
+
+  function cardWidth() {
+    const card = slider.querySelector('.proyecto-card');
+    return card ? card.offsetWidth + 24 : 444; // 24 = gap 1.5rem
+  }
+
+  function activeIdx() {
+    return Math.round(slider.scrollLeft / cardWidth());
+  }
+
+  function updateControls() {
+    const idx = activeIdx();
+    prevBtn.disabled = slider.scrollLeft < 4;
+    nextBtn.disabled = slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 4;
+    dots.forEach((dot, i) => dot.classList.toggle('dot--active', i === idx));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      slider.scrollTo({ left: i * cardWidth(), behavior: 'smooth' });
+    });
+  });
+
+  slider.addEventListener('scroll', updateControls, { passive: true });
+  updateControls();
+}());
+
 // ── MENÚ MÓVIL ──
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -137,29 +192,33 @@ const translations = {
     navProjects: 'Proyectos',
     navContact: 'Contacto',
     langToggleLabel: 'Switch to English',
-    heroTag: 'Frontend Developer · Murcia · 2026',
+    heroTag: 'Frontend Dev · Diseñador Gráfico · Marketing Digital y RRSS',
     heroSubtitle: 'Once años construyendo identidades visuales para música independiente. Ahora frontend developer — con el criterio de diseño ya incluido.',
     heroCta1: 'Ver proyectos',
     heroCta2: 'Contacto',
     sectionLabelAbout: 'De Donde Vengo',
     sectionTitleAbout: 'Diseño y desarrollo frontend.<br>Una sola forma de pensar la interfaz.',
     aboutText1: 'Desde 2015 diseño para bandas y proyectos musicales — carteles, logos, portadas de vinilo, booklets, reels y lyric videos. Una trayectoria construida proyecto a proyecto, donde el resultado final ha pesado siempre más que la titulación.',
-    aboutText2: 'En 2026 incorporo el desarrollo frontend a mi perfil. Trabajo con HTML, CSS y JavaScript, y aplico mi criterio visual desde el primer momento del proyecto. Diseñar antes de programar cambia la forma de construir una interfaz.',
+    aboutText2: 'En 2026 incorporo el desarrollo web a mi perfil. Trabajo con HTML, CSS y JavaScript, y aplico mi criterio visual desde el primer momento del proyecto. Diseñar antes de programar cambia la forma de construir una interfaz.',
     sectionLabelProjects: 'Trabajo web',
     sectionTitleProjects: 'Lo que he construido',
     card1Title: 'Riffs on Time',
     card1Desc: 'Herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF.',
     card2Title: 'Best Nutrition',
     card2Desc: 'Web multi-página para una clínica de nutrición con sistema de reserva de citas funcional. Selección de servicio, fecha y franja horaria con validación en cliente, gestión de disponibilidad y confirmación de cita en tiempo real.',
-    card3Title: 'Esta web',
-    card3Desc: 'Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.',
+    card3Title: 'Clínica Animals',
+    card3Desc: 'Web informativa para una clínica veterinaria con bilingüismo catalán/español, estado de apertura en tiempo real y carrusel automático de reseñas. Animaciones con IntersectionObserver, tarjetas de veterinarios con flip 3D en CSS y CTA directo a WhatsApp.',
+    card4Title: 'Esta web',
+    card4Desc: 'Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.',
     cardDemo: 'Ver demo →',
     cardCode: 'Ver código →',
     ariaDemo1: 'Ver demo de Riffs on Time',
     ariaCode1: 'Ver código de Riffs on Time',
     ariaDemo2: 'Ver demo de Best Nutrition',
     ariaCode2: 'Ver código de Best Nutrition',
-    ariaCode3: 'Ver código de esta web',
+    ariaDemo3: 'Ver demo de Clínica Animals',
+    ariaCode3: 'Ver código de Clínica Animals',
+    ariaCode4: 'Ver código de esta web',
     transicionDesc: 'Veo que fuiste directo. A esto me dedicaba antes del front-end.',
     designEyebrow: 'Desde 2015',
     designTitle: 'Diseño gráfico para<br>bandas de rock duro.',
@@ -185,29 +244,33 @@ const translations = {
     navProjects: 'Projects',
     navContact: 'Contact',
     langToggleLabel: 'Cambiar a español',
-    heroTag: 'Frontend Developer · Murcia · 2026',
+    heroTag: 'Frontend Dev · Graphic Designer · Digital Marketing & Social Media',
     heroSubtitle: 'Eleven years building visual identities for independent music. Now a frontend developer — with design thinking already built in.',
     heroCta1: 'View projects',
     heroCta2: 'Contact',
     sectionLabelAbout: 'My Background',
     sectionTitleAbout: 'Design and frontend development.<br>One way of thinking about interfaces.',
     aboutText1: "Since 2015 I've been designing for bands and music projects — posters, logos, vinyl covers, booklets, reels and lyric videos. A career built project by project, where the final result has always mattered more than the degree.",
-    aboutText2: "In 2026 I added frontend development to my profile. I work with HTML, CSS and JavaScript, applying my visual judgment from the very first moment of a project. Designing before coding changes the way you build an interface.",
+    aboutText2: "In 2026 I added web development to my profile. I work with HTML, CSS and JavaScript, applying my visual judgment from the very first moment of a project. Designing before coding changes the way you build an interface.",
     sectionLabelProjects: 'Web work',
     sectionTitleProjects: "What I've built",
     card1Title: 'Riffs on Time',
     card1Desc: 'A tool for musicians to build concert setlists with exact durations. Spotify song search, automatic time totals, and export to Word and PDF.',
     card2Title: 'Best Nutrition',
     card2Desc: 'Multi-page website for a nutrition clinic with a fully functional appointment booking system. Service selection, date and time slots, client-side validation, availability management and real-time confirmation.',
-    card3Title: 'This website',
-    card3Desc: 'Custom i18n system, IntersectionObserver for entrance animations, dual theme palette, pure CSS glitch effects. Zero dependencies.',
+    card3Title: 'Clínica Animals',
+    card3Desc: 'Informational website for a veterinary clinic with Catalan/Spanish language toggle, real-time open/closed status based on live schedule, and an automatic reviews carousel. IntersectionObserver animations, 3D CSS flip cards for vet profiles, and a direct WhatsApp CTA.',
+    card4Title: 'This website',
+    card4Desc: 'Custom i18n system, IntersectionObserver for entrance animations, dual theme palette, pure CSS glitch effects. Zero dependencies.',
     cardDemo: 'View demo →',
     cardCode: 'View code →',
     ariaDemo1: 'View Riffs on Time demo',
     ariaCode1: 'View Riffs on Time code',
     ariaDemo2: 'View Best Nutrition demo',
     ariaCode2: 'View Best Nutrition code',
-    ariaCode3: "View this website's code",
+    ariaDemo3: 'View Clínica Animals demo',
+    ariaCode3: 'View Clínica Animals code',
+    ariaCode4: "View this website's code",
     transicionDesc: "I see you went straight for it. This is what I did before frontend.",
     designEyebrow: 'Since 2015',
     designTitle: 'Graphic design for<br>hard rock bands.',
@@ -281,3 +344,53 @@ const activeNavObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 navSections.forEach(section => activeNavObserver.observe(section));
+
+// ── PARALLAX — sección Wildside ──
+const transicion = document.querySelector('.transicion');
+if (transicion && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const parallaxTransicion = () => {
+    const rect = transicion.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    const progress = rect.top / window.innerHeight;
+    const offset = 50 + progress * 20;
+    transicion.style.backgroundPosition = `center center, center ${offset}%`;
+  };
+  window.addEventListener('scroll', parallaxTransicion, { passive: true });
+  parallaxTransicion();
+}
+
+// ── TIMELINE — animación al entrar en viewport ──
+const timeline = document.querySelector('.timeline');
+if (timeline) {
+  new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tl-animated');
+      }
+    });
+  }, { threshold: 0.6 }).observe(timeline);
+}
+
+// ── CURSOR ROJO — zona oscura ──
+const cursor = document.querySelector('.custom-cursor');
+let darkCount = 0;
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('.transicion, .loudamps-design, .contacto').forEach(section => {
+  section.addEventListener('mouseenter', () => {
+    darkCount++;
+    cursor.classList.add('is-active');
+    document.body.style.cursor = 'none';
+  });
+  section.addEventListener('mouseleave', () => {
+    darkCount = Math.max(0, darkCount - 1);
+    if (darkCount === 0) {
+      cursor.classList.remove('is-active');
+      document.body.style.cursor = '';
+    }
+  });
+});
