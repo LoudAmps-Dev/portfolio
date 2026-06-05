@@ -1202,6 +1202,15 @@ button:focus-visible {
     display: block;
     padding: .85rem 2rem;
     font-size: 1rem;
+    text-align: center;
+  }
+
+  .nav-links a.nav-cta {
+    background: none;
+    color: var(--pro-secondary);
+    padding: .85rem 2rem;
+    border-radius: 0;
+    font-weight: 500;
   }
 
   .design-grid,
