@@ -125,78 +125,6 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
 }
 
-/* ── WILDSIDE (pastilla negra con texto rojo glitcheando) ── */
-.wildside-teaser {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  background: transparent;
-  border: 1.5px solid var(--pro-border);
-  color: var(--pro-secondary);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.6rem 3rem;
-  border-radius: 8px;
-  transition: padding-left 250ms ease, padding-right 250ms ease;
-}
-
-.wildside-teaser:hover {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-  background: var(--music-bg);
-  border-color: var(--music-border);
-}
-
-.wildside-default {
-  position: relative;
-  z-index: 1;
-  white-space: nowrap;
-}
-
-.wildside-teaser:hover .wildside-default { opacity: 0; }
-
-.wildside-hover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  font-family: var(--font-music);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  color: var(--music-red);
-  opacity: 0;
-  animation: wildside-distort 4s infinite;
-  animation-play-state: paused;
-}
-
-.wildside-teaser:hover .wildside-hover {
-  opacity: 1;
-  animation-play-state: running;
-}
-
-@keyframes wildside-distort {
-  0%   { transform: translate(0, 0);          text-shadow: none; }
-  10%  { transform: translate(-0.5px, 0.5px); text-shadow: none; }
-  20%  { transform: translate(0.5px, -0.5px); text-shadow: none; }
-  30%  { transform: translate(-0.5px, -0.5px);text-shadow: none; }
-  40%  { transform: translate(0.5px, 0.5px);  text-shadow: none; }
-
-  50%  { transform: translate(-2px, 0) skew(-3deg); text-shadow: 2px 0 #00e5ff, -2px 0 #ff0040; }
-  52%  { transform: translate(2px, 0) skew(2deg);   text-shadow: -2px 0 #00e5ff, 2px 0 #ff0040; }
-  54%  { transform: translate(-1px, 1px);            text-shadow: 3px 0 #00e5ff, -3px 0 #ff0040; }
-  56%  { transform: translate(0, 0);                 text-shadow: none; }
-
-  70%  { transform: translate(0.5px, 0.5px); }
-  85%  { transform: translate(-0.5px, 0); }
-  100% { transform: translate(0, 0); }
-}
 
 @keyframes title-glitch {
   /* glitch inicial — arranca inmediato */
@@ -251,7 +179,6 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .transicion-title { animation: none; }
   .transicion-arrow { animation: none; }
-  .wildside-hover { animation: none; }
   .hero-scroll-line { animation: none; }
   .tl-fill { transition: none; }
   .hero-tag.reveal,
