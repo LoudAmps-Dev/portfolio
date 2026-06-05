@@ -413,20 +413,52 @@ section { padding: 6rem 0; }
   margin-bottom: 2rem;
 }
 
-.skills-tags { display: flex; flex-direction: column; gap: 0; }
-
-.skills-group { margin-bottom: 1rem; }
-
-.skills-category {
-  font-size: .7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--pro-secondary);
-  margin-bottom: .5rem;
+.skills-tags {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 2rem;
+  margin-top: .5rem;
 }
 
-.skills-group-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+.skills-group { margin-bottom: 0; }
+
+.skills-category {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--pro-accent);
+  margin-bottom: .75rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--pro-border);
+}
+
+.skills-group-tags {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+.skills-group-tags .tag {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .skills-tags {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.5rem;
+  }
+  .skills-group-tags {
+    flex-direction: column;
+    gap: .45rem;
+  }
+  .skills-group-tags .tag {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 /* ── TIMELINE ── */
 .timeline {
@@ -434,7 +466,6 @@ section { padding: 6rem 0; }
   align-items: center;
   gap: 1.25rem;
   margin: 2.5rem 0;
-  max-width: 520px;
 }
 
 .tl-start, .tl-end {
