@@ -105,15 +105,14 @@ stats.forEach(stat => observer.observe(stat));
 
 // ── CARDS — entrada escalonada con IntersectionObserver ──
 const cards = document.querySelectorAll('.proyecto-card');
-const cardIndex = new Map([...cards].map((card, i) => [card, i]));
+const slider = document.getElementById('proyectosSlider');
 const cardObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : cardIndex.get(entry.target) * 130;
-    setTimeout(() => entry.target.classList.add('card-visible'), delay);
+    entry.target.classList.add('card-visible');
     cardObserver.unobserve(entry.target);
   });
-}, { threshold: 0.12 });
+}, { root: slider, threshold: 0.12 });
 cards.forEach(card => cardObserver.observe(card));
 
 // ── SLIDER DE PROYECTOS ──
@@ -156,6 +155,34 @@ cards.forEach(card => cardObserver.observe(card));
 
   slider.addEventListener('scroll', updateControls, { passive: true });
   updateControls();
+}());
+
+// ── SLIDER DE VINILOS (mobile) ──
+(function () {
+  const slider = document.getElementById('vinylSlider');
+  const dots = document.querySelectorAll('#vinylDots .dot');
+  if (!slider) return;
+
+  function itemWidth() {
+    const item = slider.querySelector('.design-item');
+    if (!item) return 0;
+    const gap = parseFloat(getComputedStyle(slider).gap) || 16;
+    return item.offsetWidth + gap;
+  }
+
+  function updateDots() {
+    const idx = Math.round(slider.scrollLeft / itemWidth());
+    dots.forEach((dot, i) => dot.classList.toggle('dot--active', i === idx));
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      slider.scrollTo({ left: i * itemWidth(), behavior: 'smooth' });
+    });
+  });
+
+  slider.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
 }());
 
 // ── MENÚ MÓVIL ──
@@ -205,6 +232,8 @@ const translations = {
     card3Desc: 'Web informativa para una clínica veterinaria con bilingüismo catalán/español, estado de apertura en tiempo real y carrusel automático de reseñas. Animaciones con IntersectionObserver, tarjetas de veterinarios con flip 3D en CSS y CTA directo a WhatsApp.',
     card4Title: 'Esta web',
     card4Desc: 'Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.',
+    card5Title: 'Hitten — Web oficial',
+    card5Desc: 'Web oficial de la banda de rock duro Hitten (High Roller Records). Identidad visual completa, diseño y desarrollo. Dos páginas: sitio principal y EPK para promotores. Integración con Bandcamp y Bands in Town.',
     cardDemo: 'Ver demo →',
     cardCode: 'Ver código →',
     ariaDemo1: 'Ver demo de Riffs on Time',
@@ -214,6 +243,8 @@ const translations = {
     ariaDemo3: 'Ver demo de Clínica Animals',
     ariaCode3: 'Ver código de Clínica Animals',
     ariaCode4: 'Ver código de esta web',
+    ariaDemo5: 'Ver web de Hitten',
+    ariaCode5: 'Ver código de Hitten',
     transicionDesc: 'Veo que fuiste directo. A esto me dedicaba antes del front-end.',
     designEyebrow: 'Desde 2015',
     designTitle: 'Diseño gráfico para<br>bandas de rock duro.',
@@ -231,6 +262,7 @@ const translations = {
     contactoTitle: 'Hablamos',
     contactoDesc: 'Busco mi primera oportunidad profesional como desarrollador frontend. Once años de criterio visual aplicados desde el primer commit. ¿Hablamos?',
     contactoFinalDesc: 'Diseñador que aprendió a programar. O programador que nunca dejó de diseñar.',
+    backToTop: '↑ Volver arriba',
     wildsideTeaser: 'Hay más historia aquí',
     footer: '© 2026 Dani Meseguer. Hecho en Murcia 🍋',
   },
@@ -257,6 +289,8 @@ const translations = {
     card3Desc: 'Informational website for a veterinary clinic with Catalan/Spanish language toggle, real-time open/closed status based on live schedule, and an automatic reviews carousel. IntersectionObserver animations, 3D CSS flip cards for vet profiles, and a direct WhatsApp CTA.',
     card4Title: 'This website',
     card4Desc: 'Custom i18n system, IntersectionObserver for entrance animations, dual theme palette, pure CSS glitch effects. Zero dependencies.',
+    card5Title: 'Hitten — Official Website',
+    card5Desc: 'Official website for hard rock band Hitten (High Roller Records). Full visual identity, design and development. Two pages: main site and EPK for promoters. Bandcamp store and Bands in Town tour dates integrations.',
     cardDemo: 'View demo →',
     cardCode: 'View code →',
     ariaDemo1: 'View Riffs on Time demo',
@@ -266,6 +300,8 @@ const translations = {
     ariaDemo3: 'View Clínica Animals demo',
     ariaCode3: 'View Clínica Animals code',
     ariaCode4: "View this website's code",
+    ariaDemo5: 'View Hitten website',
+    ariaCode5: 'View Hitten code',
     transicionDesc: "I see you went straight for it. This is what I did before frontend.",
     designEyebrow: 'Since 2015',
     designTitle: 'Graphic design for<br>hard rock bands.',
@@ -283,6 +319,7 @@ const translations = {
     contactoTitle: "Let's talk",
     contactoDesc: "I'm looking for my first professional opportunity as a frontend developer. Eleven years of visual judgment applied from the first commit. Shall we talk?",
     contactoFinalDesc: 'A designer who learned to code. Or a developer who never stopped designing.',
+    backToTop: '↑ Back to top',
     wildsideTeaser: 'There is more story here',
     footer: '© 2026 Dani Meseguer. Made in Murcia 🍋',
   }

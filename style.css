@@ -1034,6 +1034,23 @@ section { padding: 6rem 0; }
 
 .contacto-desc { font-size: 1rem; color: var(--music-secondary); margin-bottom: 2.5rem; }
 
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1.5px solid var(--music-border);
+  color: var(--music-secondary);
+  padding: .75rem 1.8rem;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: .5rem;
+}
+
+.back-to-top:hover { border-color: var(--music-red); color: var(--music-red); }
+
 .footer {
   margin-top: 4rem;
   padding-top: 2rem;
@@ -1107,6 +1124,21 @@ section { padding: 6rem 0; }
 }
 
 .proyecto-link-secondary:hover { color: var(--pro-accent); }
+
+/* ── VINYL SLIDER DOTS (solo en mobile) ── */
+.slider-dots--vinyl { display: none; }
+
+@media (max-width: 900px) {
+  .slider-dots--vinyl {
+    display: flex;
+    margin-top: 1.25rem;
+  }
+  .slider-dots--vinyl .dot { background: var(--music-muted); }
+  .slider-dots--vinyl .dot--active {
+    background: var(--music-red);
+    transform: scale(1.5);
+  }
+}
 
 /* ── SECCIÓN PRÓXIMAMENTE ── */
 .section-soon {
@@ -1211,15 +1243,29 @@ button:focus-visible {
   }
 
   .design-grid,
-  .design-grid--3,
   .design-grid--4 { grid-template-columns: 1fr; }
   .hero-title { font-size: 3rem; }
+
+  section { padding: 4rem 0; }
+  .sobre-mi { min-height: auto; padding-bottom: 7rem; }
+  .contacto-pro { min-height: auto; padding: 5rem 0; }
+  .loudamps-design .container { padding-top: 3rem; padding-bottom: 3rem; }
+
+  .design-grid--3 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    scrollbar-width: none;
+  }
+  .design-grid--3::-webkit-scrollbar { display: none; }
+  .design-grid--3 .design-item {
+    flex: 0 0 72vw;
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 600px) {
   .proyecto-links { gap: .75rem; }
-}
-
-@media (max-width: 480px) {
-  .design-grid--3 { grid-template-columns: repeat(2, 1fr); }
 }
