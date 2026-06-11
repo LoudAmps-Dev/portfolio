@@ -1,0 +1,94 @@
+/* ── CONTACTO PRO ── */
+.contacto-pro {
+  background: var(--pro-surface);
+  border-top: 1px solid var(--pro-border);
+  text-align: center;
+  padding: 6rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto-pro-title {
+  font-family: var(--font-pro);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--pro-title);
+  margin-bottom: .75rem;
+}
+
+.contacto-pro-desc {
+  font-size: 1rem;
+  color: var(--pro-secondary);
+  margin-bottom: 2.5rem;
+  max-width: min(480px, 58ch);
+  margin-inline: auto;
+}
+
+.contacto-pro-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.contacto-pro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--pro-border);
+  color: var(--pro-title);
+  padding: .75rem 1.8rem;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contacto-pro-btn:hover { border-color: var(--pro-accent); color: var(--pro-accent); }
+
+/* ── CONTACTO FINAL ── */
+.contacto {
+  background: var(--music-bg);
+  border-top: 1px solid var(--music-border);
+  text-align: center;
+  padding: 6rem 0 3rem;
+}
+
+.contacto-title {
+  font-family: var(--font-music);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--music-red);
+  letter-spacing: .06em;
+  margin-bottom: .75rem;
+}
+
+.contacto-desc { font-size: 1rem; color: var(--music-secondary); margin-bottom: 2.5rem; }
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1.5px solid var(--music-border);
+  color: var(--music-secondary);
+  padding: .75rem 1.8rem;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: .5rem;
+}
+
+.back-to-top:hover { border-color: var(--music-red); color: var(--music-red); }
+
+.footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--music-border);
+  text-align: center;
+}
+
+.footer p { font-size: .8rem; color: var(--music-dim); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .contacto-pro { padding: 5rem 0; }
+}

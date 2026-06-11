@@ -22,6 +22,12 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="wildside.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
 
@@ -173,7 +179,7 @@
           </div>
           <div class="proyecto-info">
             <span class="card-num" aria-hidden="true">01</span>
-            <span class="card-badge card-badge--real">Cliente real</span>
+            <span class="card-badge card-badge--real" data-i18n="badgeReal">Cliente real</span>
             <h3 data-i18n="card4Title">Esta web</h3>
             <p data-i18n="card4Desc">Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.</p>
             <div class="proyecto-tags">
@@ -194,7 +200,7 @@
           </div>
           <div class="proyecto-info">
             <span class="card-num" aria-hidden="true">02</span>
-            <span class="card-badge card-badge--real">Cliente real</span>
+            <span class="card-badge card-badge--real" data-i18n="badgeReal">Cliente real</span>
             <h3 data-i18n="card5Title">Hitten — Web oficial</h3>
             <p data-i18n="card5Desc">Web oficial de la banda de rock duro Hitten (High Roller Records). Identidad visual completa, diseño y desarrollo. Dos páginas: sitio principal y EPK para promotores. Integración con Bandcamp y Bands in Town.</p>
             <div class="proyecto-tags">
@@ -217,7 +223,7 @@
           </div>
           <div class="proyecto-info">
             <span class="card-num" aria-hidden="true">03</span>
-            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
+            <span class="card-badge card-badge--practice" data-i18n="badgePractice">Proyecto de prácticas</span>
             <h3 data-i18n="card1Title">Riffs on Time</h3>
             <p data-i18n="card1Desc">Herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF.</p>
             <div class="proyecto-tags">
@@ -239,7 +245,7 @@
           </div>
           <div class="proyecto-info">
             <span class="card-num" aria-hidden="true">04</span>
-            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
+            <span class="card-badge card-badge--practice" data-i18n="badgePractice">Proyecto de prácticas</span>
             <h3 data-i18n="card3Title">Clínica Animals</h3>
             <p data-i18n="card3Desc">Web informativa para una clínica veterinaria con bilingüismo catalán/español, estado de apertura en tiempo real y carrusel automático de reseñas. Animaciones con IntersectionObserver, tarjetas de veterinarios con flip 3D en CSS y CTA directo a WhatsApp.</p>
             <div class="proyecto-tags">
@@ -261,7 +267,7 @@
           </div>
           <div class="proyecto-info">
             <span class="card-num" aria-hidden="true">05</span>
-            <span class="card-badge card-badge--practice">Proyecto de prácticas</span>
+            <span class="card-badge card-badge--practice" data-i18n="badgePractice">Proyecto de prácticas</span>
             <h3 data-i18n="card2Title">Best Nutrition</h3>
             <p data-i18n="card2Desc">Web multi-página para una clínica de nutrición con sistema de reserva de citas funcional. Selección de servicio, fecha y franja horaria con validación en cliente, gestión de disponibilidad y confirmación de cita en tiempo real.</p>
             <div class="proyecto-tags">
@@ -295,7 +301,7 @@
       <h2 class="contacto-pro-title" data-i18n="contactoTitle">Hablamos</h2>
       <p class="contacto-pro-desc" data-i18n="contactoDesc">Busco mi primera oportunidad profesional como desarrollador frontend. Once años de criterio visual aplicados desde el primer commit. ¿Hablamos?</p>
       <div class="contacto-pro-links">
-        <a href="mailto:daniel.meseguer91@gmail.com" class="contacto-pro-btn">
+        <a href="mailto:danimeseguerdev@gmail.com" class="contacto-pro-btn">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           Email
         </a>
@@ -314,10 +320,10 @@
   <!-- TRANSICIÓN / WILDSIDE -->
   <section class="transicion" id="transicion">
     <div class="container">
+      <span class="transicion-archive" data-i18n="transicionArchive">Dani Meseguer Designs Archive (últimos proyectos)</span>
       <h2 class="transicion-title">Wildside</h2>
-      <span class="transicion-bienvenido">Bienvenid@</span>
-      <p class="transicion-subtitle">Aquí tienes algunos trabajos de diseño gráfico que he realizado.</p>
-      <div class="transicion-arrow">↓</div>
+      <span class="transicion-bienvenido" data-i18n="transicionBienvenido">Bienvenid@</span>
+      <p class="transicion-subtitle" data-i18n="transicionSubtitle">Aquí tienes algunos trabajos de diseño gráfico que he realizado.</p>
     </div>
   </section>
 
@@ -325,27 +331,10 @@
   <section class="loudamps-design" id="loudamps-design">
     <div class="design-intro">
       <div class="container">
+        <span class="design-kicker" data-i18n="designKicker">02 / Trabajo Visual</span>
         <span class="design-eyebrow" data-i18n="designEyebrow">Desde 2015</span>
         <h2 class="design-section-title" data-i18n="designTitle">Diseño gráfico para<br>bandas de rock duro.</h2>
         <p class="design-body" data-i18n="designBody">Cartelería, identidades y maquetación completa para imprenta. Portadas, inserts y booklets de vinilo y CD. Reels, lyric videos y montaje de videoclips a partir de los brutos.</p>
-        <div class="stats">
-          <div class="stat" data-target="5">
-            <span class="stat-number">0</span>
-            <span class="stat-label" data-i18n="statLabel1">Discos compuestos</span>
-          </div>
-          <div class="stat" data-target="20" data-suffix="+">
-            <span class="stat-number">0</span>
-            <span class="stat-label" data-i18n="statLabel2">Países rockeados</span>
-          </div>
-          <div class="stat" data-target="50" data-suffix="K+">
-            <span class="stat-number">0</span>
-            <span class="stat-label" data-i18n="statLabel3">Km en furgoneta</span>
-          </div>
-          <div class="stat" data-static="∞">
-            <span class="stat-number">∞</span>
-            <span class="stat-label" data-i18n="statLabel4">Experiencia de vida</span>
-          </div>
-        </div>
       </div>
     </div>
     <div class="container">
@@ -354,38 +343,194 @@
         <!-- VINILO & PRINT -->
         <div class="design-category">
           <span class="design-cat-label" data-i18n="designCatVinyl">Vinilo &amp; Print</span>
-          <div class="design-grid design-grid--3" id="vinylSlider">
+          <div class="design-grid design-grid--3 design-slider" id="vinylSlider">
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-while-passion-lasts-lp-neon-green~2.webp" alt="Portada del LP While Passion Lasts de Hitten, edición vinilo verde neón" loading="lazy">
+                <img src="img/diseno-grafico/vigilhunter%20vinilo.jpg" alt="Portada vinilo Vigilhunter" loading="lazy">
               </div>
-              <span class="design-label">Hitten — While Passion Lasts</span>
-              <span class="design-sublabel" data-i18n="sublabelComplete">Maquetación completa</span>
+              <span class="design-label">Vigilhunter</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-triumph-tragedy-lp-black-2nd-pressing-4251267713882~2.webp" alt="Portada del LP Triumph and Tragedy de Hitten, segunda prensada en vinilo negro" loading="lazy">
+                <img src="img/diseno-grafico/ciudad%20olvido.jpg" alt="Portada vinilo Ciudad del Olvido" loading="lazy">
+              </div>
+              <span class="design-label">Ciudad Olvido</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--vinyl">
+                <img src="img/diseno-grafico/triumph.jpg" alt="Portada del LP Triumph and Tragedy de Hitten" loading="lazy">
               </div>
               <span class="design-label">Hitten — Triumph and Tragedy</span>
-              <span class="design-sublabel" data-i18n="sublabelComplete">Maquetación completa</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--vinyl">
+                <img src="img/diseno-grafico/while%20passion%20lasts.jpg" alt="Portada del LP While Passion Lasts de Hitten" loading="lazy">
+              </div>
+              <span class="design-label">Hitten — While Passion Lasts</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
                 <img src="img/hitten-twist-of-fate-lp-galaxy~2.webp" alt="Portada del LP Twist of Fate de Hitten, edición vinilo galaxy" loading="lazy">
               </div>
               <span class="design-label">Hitten — Twist of Fate</span>
-              <span class="design-sublabel" data-i18n="sublabelComplete">Maquetación completa</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
             </div>
           </div>
-          <div class="slider-dots slider-dots--vinyl" id="vinylDots">
+          <div class="slider-dots slider-dots--design" id="vinylDots">
             <button class="dot dot--active" data-idx="0" aria-label="Ir al vinilo 1"></button>
             <button class="dot" data-idx="1" aria-label="Ir al vinilo 2"></button>
             <button class="dot" data-idx="2" aria-label="Ir al vinilo 3"></button>
+            <button class="dot" data-idx="3" aria-label="Ir al vinilo 4"></button>
+            <button class="dot" data-idx="4" aria-label="Ir al vinilo 5"></button>
+          </div>
+        </div>
+
+        <!-- CARTELERÍA DE GIRA -->
+        <div class="design-category">
+          <span class="design-cat-label" data-i18n="designCatPosters">Cartelería de Gira</span>
+          <div class="design-grid design-grid--3 design-slider design-slider--poster" id="posterSlider">
+            <div class="design-item">
+              <div class="design-img design-img--poster">
+                <img src="img/diseno-grafico/poster.jpg" alt="Cartel de concierto Hitten" loading="lazy">
+              </div>
+              <span class="design-label">HITTEN - La Riviera</span>
+              <span class="design-sublabel" data-i18n="sublabelConcertPoster">Cartel de Concierto</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--poster">
+                <img src="img/diseno-grafico/usa%20poster%20v2.jpg" alt="Cartel gira USA Hitten versión 2" loading="lazy">
+              </div>
+              <span class="design-label">HITTEN - Plaza de Toros de Murcia</span>
+              <span class="design-sublabel" data-i18n="sublabelConcertPoster">Cartel de Concierto</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--poster">
+                <img src="img/diseno-grafico/Hitten%20European%20Tour%202026.png" alt="Cartel European Tour 2026 Hitten" loading="lazy">
+              </div>
+              <span class="design-label">Hitten — European Tour 2026</span>
+              <span class="design-sublabel" data-i18n="sublabelTourPoster">Cartel de gira</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--poster">
+                <img src="img/diseno-grafico/usa%20tour%20poster.jpg" alt="Cartel gira USA Hitten" loading="lazy">
+              </div>
+              <span class="design-label">Hitten — USA Tour</span>
+              <span class="design-sublabel" data-i18n="sublabelTourPoster">Cartel de gira</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--poster">
+                <img src="img/diseno-grafico/europe%20poster.jpg" alt="Cartel gira europea Hitten" loading="lazy">
+              </div>
+              <span class="design-label">Hitten — European Tour</span>
+              <span class="design-sublabel" data-i18n="sublabelTourPoster">Cartel de gira</span>
+            </div>
+          </div>
+          <div class="slider-dots slider-dots--design" id="posterDots">
+            <button class="dot dot--active" data-idx="0" aria-label="Ir al cartel 1"></button>
+            <button class="dot" data-idx="1" aria-label="Ir al cartel 2"></button>
+            <button class="dot" data-idx="2" aria-label="Ir al cartel 3"></button>
+            <button class="dot" data-idx="3" aria-label="Ir al cartel 4"></button>
+            <button class="dot" data-idx="4" aria-label="Ir al cartel 5"></button>
+          </div>
+        </div>
+
+        <!-- MERCHANDISING -->
+        <div class="design-category">
+          <span class="design-cat-label" data-i18n="designCatMerch">Merchandising</span>
+          <div class="design-grid design-grid--4 design-slider design-slider--merch" id="merchSlider">
+            <div class="design-item">
+              <div class="design-img design-img--merch">
+                <img src="img/diseno-grafico/ciclon%20camiseta.jpg" alt="Diseño camiseta Ciclón" loading="lazy">
+              </div>
+              <span class="design-label">Ciclon - Magia</span>
+              <span class="design-sublabel" data-i18n="sublabelMerch">Diseño de merchandising</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--merch">
+                <img src="img/diseno-grafico/vigilhunter%20camiseta.jpg" alt="Diseño camiseta Vigilhunter" loading="lazy">
+              </div>
+              <span class="design-label">Vigilhunter</span>
+              <span class="design-sublabel" data-i18n="sublabelMerch">Diseño de merchandising</span>
+            </div>
+            <div class="design-item">
+              <button class="design-img design-img--merch design-img--variant" type="button" aria-label="Ver roll up real" data-alt-src="img/diseno-grafico/hitten%20roll%20up%20real.jpg" data-alt-alt="Roll up publicitario real de Hitten" data-alt-label="Real" data-original-label="Diseño">
+                <img src="img/diseno-grafico/roll%20up.webp" alt="Diseño roll-up publicitario" loading="lazy">
+              </button>
+              <span class="design-label" data-i18n="labelRollUp">Hitten - Roll Up publicitario</span>
+              <span class="design-sublabel" data-i18n="sublabelLargePrint">Diseño e impresión a gran escala</span>
+            </div>
+            <div class="design-item">
+              <button class="design-img design-img--merch design-img--variant" type="button" aria-label="Ver camiseta Regular Black" data-alt-src="img/diseno-grafico/regular%20black.jpg" data-alt-alt="Camiseta Regular Black" data-alt-label="Regular Black" data-original-label="Raglan 3/4">
+                <img src="img/diseno-grafico/Raglan%203_4.jpg" alt="Camiseta Raglan 3/4" loading="lazy">
+              </button>
+              <span class="design-label">Hitten — USA Tour</span>
+              <span class="design-sublabel" data-i18n="sublabelTshirt">Diseño de camiseta</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--merch">
+                <img src="img/diseno-grafico/cyborg%20usa%20(1).jpg" alt="Diseño camiseta Cyborg USA de Hitten" loading="lazy">
+              </div>
+              <span class="design-label">Hitten - USA Tour</span>
+              <span class="design-sublabel" data-i18n="sublabelTshirt">Diseño de camiseta</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--merch">
+                <img src="img/diseno-grafico/prueba%20camiseta.png" alt="Prueba de diseño de camiseta" loading="lazy">
+              </div>
+              <span class="design-label" data-i18n="labelTshirtDesign">Diseño Camiseta</span>
+              <span class="design-sublabel" data-i18n="sublabelConcept">Prueba de concepto</span>
+            </div>
+          </div>
+          <div class="slider-dots slider-dots--design" id="merchDots">
+            <button class="dot dot--active" data-idx="0" aria-label="Ir al merchandising 1"></button>
+            <button class="dot" data-idx="1" aria-label="Ir al merchandising 2"></button>
+            <button class="dot" data-idx="2" aria-label="Ir al merchandising 3"></button>
+            <button class="dot" data-idx="3" aria-label="Ir al merchandising 4"></button>
+            <button class="dot" data-idx="4" aria-label="Ir al merchandising 5"></button>
+            <button class="dot" data-idx="5" aria-label="Ir al merchandising 6"></button>
+          </div>
+        </div>
+
+        <!-- REELS PUBLICITARIOS -->
+        <div class="design-category">
+          <span class="design-cat-label" data-i18n="designCatReels">Reels Publicitarios</span>
+          <div class="design-grid design-grid--reels">
+            <div class="design-item design-item--video">
+              <div class="design-img design-img--video">
+                <video preload="metadata" poster="img/diseno-grafico/reel-spotify-poster.png" muted loop playsinline controls>
+                  <source src="img/diseno-grafico/reel%20publicitario%20spotify.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="design-item design-item--video">
+              <div class="design-img design-img--video">
+                <video preload="metadata" poster="img/diseno-grafico/reel-publicitario-poster.png" muted loop playsinline controls>
+                  <source src="img/diseno-grafico/reel%20publicitario.MP4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="design-item design-item--video">
+              <div class="design-img design-img--video">
+                <video preload="metadata" poster="img/diseno-grafico/follow-ig-poster.png" muted loop playsinline controls>
+                  <source src="img/diseno-grafico/FOLLOW%20IG.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="design-item design-item--video">
+              <div class="design-img design-img--video">
+                <video preload="metadata" poster="img/diseno-grafico/spotify-anuncio-2024-poster.png" muted loop playsinline controls>
+                  <source src="img/diseno-grafico/spotify%20anuncio%202%20%202024.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
-      <p class="section-soon" data-i18n="sectionSoon">MÁS PRÓXIMAMENTE</p>
     </div>
   </section>
 
@@ -402,6 +547,24 @@
   </section>
 
   </main>
+
+  <div class="design-lightbox" id="designLightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="design-lightbox__close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+    <figure class="design-lightbox__figure">
+      <img class="design-lightbox__img" src="" alt="">
+      <div class="design-lightbox__variants" hidden>
+        <div class="design-lightbox__variant">
+          <img class="design-lightbox__variant-img" src="" alt="">
+          <span class="design-lightbox__variant-label"></span>
+        </div>
+        <div class="design-lightbox__variant">
+          <img class="design-lightbox__variant-img" src="" alt="">
+          <span class="design-lightbox__variant-label"></span>
+        </div>
+      </div>
+      <figcaption class="design-lightbox__caption"></figcaption>
+    </figure>
+  </div>
 
   <div class="custom-cursor" aria-hidden="true"></div>
 

@@ -1,3 +1,7 @@
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navbar = document.getElementById('navbar');
+
 // Navbar — se oscurece al hacer scroll
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
@@ -15,51 +19,6 @@ new IntersectionObserver((entries) => {
     title.style.animation = '';
   });
 }, { threshold: 0.15 }).observe(document.querySelector('.transicion'));
-
-// ── STATS — contadores con IntersectionObserver ──
-const stats = document.querySelectorAll('.stat');
-
-const animateNumber = (el, target, duration, finalText) => {
-  const numEl = el.querySelector('.stat-number');
-  const suffix = el.dataset.suffix || '';
-  const start = performance.now();
-
-  const tick = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    // easing: arranca rápido, frena al final (easeOutQuad)
-    const eased = 1 - (1 - progress) * (1 - progress);
-    const value = Math.floor(eased * target);
-    numEl.textContent = value + suffix;
-
-    if (progress < 1) {
-      requestAnimationFrame(tick);
-    } else if (finalText) {
-      numEl.textContent = finalText;
-    }
-  };
-
-  requestAnimationFrame(tick);
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    if (entry.target.dataset.animated === 'true') return;
-
-    entry.target.dataset.animated = 'true';
-    const target = parseInt(entry.target.dataset.target, 10);
-
-    if (entry.target.dataset.static) return;
-    if (target === 0) return;
-
-    const finalText = entry.target.dataset.final || null;
-    const duration = finalText ? 1800 : 1400;
-
-    animateNumber(entry.target, target, duration, finalText);
-  });
-}, { threshold: 0.4 });
-
-stats.forEach(stat => observer.observe(stat));
 
 // ── HERO — typewriter + staggered entrance ──
 (function () {
@@ -157,39 +116,55 @@ cards.forEach(card => cardObserver.observe(card));
   updateControls();
 }());
 
-// ── SLIDER DE VINILOS (mobile) ──
+// ── SLIDERS DE DISEÑO ──
 (function () {
-  const slider = document.getElementById('vinylSlider');
-  const dots = document.querySelectorAll('#vinylDots .dot');
-  if (!slider) return;
+  const sliders = [
+    { slider: document.getElementById('vinylSlider'), dots: document.querySelectorAll('#vinylDots .dot') },
+    { slider: document.getElementById('posterSlider'), dots: document.querySelectorAll('#posterDots .dot') },
+    { slider: document.getElementById('merchSlider'), dots: document.querySelectorAll('#merchDots .dot') },
+  ];
 
-  function itemWidth() {
+  function itemWidth(slider) {
     const item = slider.querySelector('.design-item');
     if (!item) return 0;
     const gap = parseFloat(getComputedStyle(slider).gap) || 16;
     return item.offsetWidth + gap;
   }
 
-  function updateDots() {
-    const idx = Math.round(slider.scrollLeft / itemWidth());
-    dots.forEach((dot, i) => dot.classList.toggle('dot--active', i === idx));
-  }
+  sliders.forEach(({ slider, dots }) => {
+    if (!slider || !dots.length) return;
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      slider.scrollTo({ left: i * itemWidth(), behavior: 'smooth' });
+    function updateDots() {
+      const width = itemWidth(slider);
+      if (!width) return;
+      const idx = Math.round(slider.scrollLeft / width);
+      const activeIdx = Math.max(0, Math.min(idx, dots.length - 1));
+      dots.forEach((dot, i) => dot.classList.toggle('dot--active', i === activeIdx));
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        slider.scrollTo({ left: i * itemWidth(slider), behavior: 'smooth' });
+      });
     });
-  });
 
-  slider.addEventListener('scroll', updateDots, { passive: true });
-  updateDots();
+    slider.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
+  });
+}());
+
+// ── VÍDEOS — autoplay al entrar en viewport ──
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.isIntersecting ? entry.target.play() : entry.target.pause();
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.design-img--video video').forEach(v => videoObserver.observe(v));
 }());
 
 // ── MENÚ MÓVIL ──
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const navbar = document.getElementById('navbar');
-
 navToggle.addEventListener('click', () => {
   const isOpen = navbar.classList.toggle('is-open');
   navLinks.classList.toggle('is-open');
@@ -234,6 +209,8 @@ const translations = {
     card4Desc: 'Sistema i18n propio, IntersectionObserver para animaciones de entrada, doble paleta temática, efectos glitch en CSS puro. Cero dependencias.',
     card5Title: 'Hitten — Web oficial',
     card5Desc: 'Web oficial de la banda de rock duro Hitten (High Roller Records). Identidad visual completa, diseño y desarrollo. Dos páginas: sitio principal y EPK para promotores. Integración con Bandcamp y Bands in Town.',
+    badgeReal: 'Cliente real',
+    badgePractice: 'Proyecto de prácticas',
     cardDemo: 'Ver demo →',
     cardCode: 'Ver código →',
     ariaDemo1: 'Ver demo de Riffs on Time',
@@ -245,7 +222,10 @@ const translations = {
     ariaCode4: 'Ver código de esta web',
     ariaDemo5: 'Ver web de Hitten',
     ariaCode5: 'Ver código de Hitten',
-    transicionDesc: 'Veo que fuiste directo. A esto me dedicaba antes del front-end.',
+    transicionArchive: 'Dani Meseguer Designs Archive (últimos proyectos)',
+    transicionBienvenido: 'Bienvenid@',
+    transicionSubtitle: 'Aquí tienes algunos trabajos de diseño gráfico que he realizado.',
+    designKicker: '02 / Trabajo Visual',
     designEyebrow: 'Desde 2015',
     designTitle: 'Diseño gráfico para<br>bandas de rock duro.',
     designBody: 'Cartelería, identidades y maquetación completa para imprenta. Portadas, inserts y booklets de vinilo y CD. Reels, lyric videos y montaje de videoclips a partir de los brutos.',
@@ -254,7 +234,18 @@ const translations = {
     statLabel3: 'Km en furgoneta',
     statLabel4: 'Experiencia de vida',
     designCatVinyl: 'Vinilo &amp; Print',
-    sublabelComplete: 'Maquetación completa',
+    designCatPosters: 'Cartelería de Gira',
+    designCatMerch: 'Merchandising',
+    designCatReels: 'Reels Publicitarios',
+    sublabelComplete: 'Diseño y maquetación completa',
+    sublabelConcertPoster: 'Cartel de Concierto',
+    sublabelTourPoster: 'Cartel de gira',
+    sublabelMerch: 'Diseño de merchandising',
+    sublabelLargePrint: 'Diseño e impresión a gran escala',
+    sublabelTshirt: 'Diseño de camiseta',
+    sublabelConcept: 'Prueba de concepto',
+    labelRollUp: 'Hitten - Roll Up publicitario',
+    labelTshirtDesign: 'Diseño Camiseta',
     designCatWeb: 'Web',
     designLabelHitten: 'Hitten — Web oficial',
     designTagWeb: 'Diseño web',
@@ -295,6 +286,8 @@ const translations = {
     card4Desc: 'Custom i18n system, IntersectionObserver for entrance animations, dual theme palette, pure CSS glitch effects. Zero dependencies.',
     card5Title: 'Hitten — Official Website',
     card5Desc: 'Official website for hard rock band Hitten (High Roller Records). Full visual identity, design and development. Two pages: main site and EPK for promoters. Bandcamp store and Bands in Town tour dates integrations.',
+    badgeReal: 'Real client',
+    badgePractice: 'Practice project',
     cardDemo: 'View demo →',
     cardCode: 'View code →',
     ariaDemo1: 'View Riffs on Time demo',
@@ -306,7 +299,10 @@ const translations = {
     ariaCode4: "View this website's code",
     ariaDemo5: 'View Hitten website',
     ariaCode5: 'View Hitten code',
-    transicionDesc: "I see you went straight for it. This is what I did before frontend.",
+    transicionArchive: 'Dani Meseguer Designs Archive (latest projects)',
+    transicionBienvenido: 'Welcome',
+    transicionSubtitle: "Here are some graphic design works I've done.",
+    designKicker: '02 / Visual Work',
     designEyebrow: 'Since 2015',
     designTitle: 'Graphic design for<br>hard rock bands.',
     designBody: 'Posters, identities and complete print-ready layouts. Vinyl and CD covers, inserts and booklets. Reels, lyric videos and music video editing from raw footage.',
@@ -315,7 +311,18 @@ const translations = {
     statLabel3: 'Km in the van',
     statLabel4: 'Life experience',
     designCatVinyl: 'Vinyl &amp; Print',
-    sublabelComplete: 'Full layout design',
+    designCatPosters: 'Tour Posters',
+    designCatMerch: 'Merchandising',
+    designCatReels: 'Promotional Reels',
+    sublabelComplete: 'Design and full layout',
+    sublabelConcertPoster: 'Concert Poster',
+    sublabelTourPoster: 'Tour Poster',
+    sublabelMerch: 'Merchandise design',
+    sublabelLargePrint: 'Design and large-format printing',
+    sublabelTshirt: 'T-shirt design',
+    sublabelConcept: 'Concept mock-up',
+    labelRollUp: 'Hitten - Advertising Roll Up',
+    labelTshirtDesign: 'T-Shirt Design',
     designCatWeb: 'Web',
     designLabelHitten: 'Hitten — Official website',
     designTagWeb: 'Web design',
@@ -363,6 +370,142 @@ document.getElementById('langToggle').addEventListener('click', () => {
 
 applyTranslations(currentLang);
 
+// ── LIGHTBOX DE DISEÑO (solo escritorio) ──
+(function () {
+  const desktopQuery = window.matchMedia('(min-width: 901px)');
+  const lightbox = document.getElementById('designLightbox');
+  if (!lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('.design-lightbox__img');
+  const variantGrid = lightbox.querySelector('.design-lightbox__variants');
+  const variantImgs = lightbox.querySelectorAll('.design-lightbox__variant-img');
+  const variantLabels = lightbox.querySelectorAll('.design-lightbox__variant-label');
+  const lightboxCaption = lightbox.querySelector('.design-lightbox__caption');
+  const closeBtn = lightbox.querySelector('.design-lightbox__close');
+  const items = document.querySelectorAll(
+    '.design-img--vinyl img, .design-img--poster img, .design-img--merch:not(.design-img--variant) img'
+  );
+  const variantButtons = document.querySelectorAll('.design-img--variant');
+  let activeTrigger = null;
+
+  function captionFor(element, fallback = '') {
+    const item = element.closest('.design-item');
+    const title = item?.querySelector('.design-label')?.textContent.trim() || fallback;
+    const subtitle = item?.querySelector('.design-sublabel')?.textContent.trim();
+    return subtitle ? `${title}<span>${subtitle}</span>` : title;
+  }
+
+  function showSingleImage() {
+    lightboxImg.hidden = false;
+    variantGrid.hidden = true;
+    lightbox.classList.remove('design-lightbox--variants');
+  }
+
+  function showVariantImages() {
+    lightboxImg.hidden = true;
+    variantGrid.hidden = false;
+    lightbox.classList.add('design-lightbox--variants');
+  }
+
+  function openLightbox(img) {
+    if (!desktopQuery.matches) return;
+    activeTrigger = img.closest('.design-img') || img;
+    showSingleImage();
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.innerHTML = captionFor(img, img.alt);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function openVariantLightbox(button) {
+    const img = button.querySelector('img');
+    if (!img || variantImgs.length < 2 || variantLabels.length < 2) return;
+
+    activeTrigger = button;
+    showVariantImages();
+    variantImgs[0].src = img.currentSrc || img.src;
+    variantImgs[0].alt = img.alt;
+    variantLabels[0].textContent = button.dataset.originalLabel || 'Actual';
+    variantImgs[1].src = button.dataset.altSrc;
+    variantImgs[1].alt = button.dataset.altAlt || '';
+    variantLabels[1].textContent = button.dataset.altLabel || 'Variante';
+    lightboxCaption.innerHTML = captionFor(button, img.alt);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function closeLightbox() {
+    if (!lightbox.classList.contains('is-open')) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    setTimeout(() => {
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+      variantImgs.forEach(img => {
+        img.removeAttribute('src');
+        img.alt = '';
+      });
+      variantLabels.forEach(label => {
+        label.textContent = '';
+      });
+      lightboxCaption.textContent = '';
+      showSingleImage();
+    }, 220);
+    activeTrigger?.focus?.({ preventScroll: true });
+  }
+
+  function setTriggerState() {
+    items.forEach(img => {
+      const trigger = img.closest('.design-img');
+      if (!trigger) return;
+      if (desktopQuery.matches) {
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('tabindex', '0');
+        trigger.setAttribute('aria-label', `Ampliar ${img.alt}`);
+      } else {
+        trigger.removeAttribute('role');
+        trigger.removeAttribute('tabindex');
+        trigger.removeAttribute('aria-label');
+      }
+    });
+  }
+
+  items.forEach(img => {
+    const trigger = img.closest('.design-img');
+    if (!trigger) return;
+    trigger.addEventListener('click', () => openLightbox(img));
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(img);
+      }
+    });
+  });
+  setTriggerState();
+
+  variantButtons.forEach(button => {
+    button.addEventListener('click', () => openVariantLightbox(button));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+  desktopQuery.addEventListener('change', () => {
+    if (!desktopQuery.matches) closeLightbox();
+    setTriggerState();
+  });
+}());
+
 // ── NAV ACTIVO AL HACER SCROLL ──
 const navSections = document.querySelectorAll('section[id]');
 const navLinksAll = document.querySelectorAll('.nav-links a');
@@ -386,8 +529,9 @@ const activeNavObserver = new IntersectionObserver((entries) => {
 navSections.forEach(section => activeNavObserver.observe(section));
 
 // ── PARALLAX — sección Wildside ──
-const transicion = document.querySelector('.transicion');
-if (transicion && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+(function () {
+  const transicion = document.querySelector('.transicion');
+  if (!transicion || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const parallaxTransicion = () => {
     const rect = transicion.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight) return;
@@ -401,7 +545,7 @@ if (transicion && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     rafId = requestAnimationFrame(parallaxTransicion);
   }, { passive: true });
   parallaxTransicion();
-}
+}());
 
 // ── TIMELINE — animación al entrar en viewport ──
 const timeline = document.querySelector('.timeline');
@@ -416,25 +560,27 @@ if (timeline) {
 }
 
 // ── CURSOR ROJO — zona oscura ──
-const cursor = document.querySelector('.custom-cursor');
-let darkCount = 0;
+(function () {
+  const cursor = document.querySelector('.custom-cursor');
+  if (!cursor) return;
+  let darkCount = 0;
 
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+  });
 
-document.querySelectorAll('.transicion, .loudamps-design, .contacto').forEach(section => {
-  section.addEventListener('mouseenter', () => {
-    darkCount++;
-    cursor.classList.add('is-active');
-    document.body.style.cursor = 'none';
+  document.querySelectorAll('.transicion, .loudamps-design, .contacto').forEach(section => {
+    section.addEventListener('mouseenter', () => {
+      darkCount++;
+      cursor.classList.add('is-active');
+      document.body.style.cursor = 'none';
+    });
+    section.addEventListener('mouseleave', () => {
+      darkCount = Math.max(0, darkCount - 1);
+      if (darkCount === 0) {
+        cursor.classList.remove('is-active');
+        document.body.style.cursor = '';
+      }
+    });
   });
-  section.addEventListener('mouseleave', () => {
-    darkCount = Math.max(0, darkCount - 1);
-    if (darkCount === 0) {
-      cursor.classList.remove('is-active');
-      document.body.style.cursor = '';
-    }
-  });
-});
+}());

@@ -7,6 +7,7 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+.claude/settings.local.json
 
 # Dependencias (por si se instala algo en el futuro)
 node_modules/
