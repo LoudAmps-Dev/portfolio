@@ -122,6 +122,7 @@ cards.forEach(card => cardObserver.observe(card));
     { slider: document.getElementById('vinylSlider'), dots: document.querySelectorAll('#vinylDots .dot') },
     { slider: document.getElementById('posterSlider'), dots: document.querySelectorAll('#posterDots .dot') },
     { slider: document.getElementById('merchSlider'), dots: document.querySelectorAll('#merchDots .dot') },
+    { slider: document.getElementById('reelsSlider'), dots: document.querySelectorAll('#reelsDots .dot') },
   ];
 
   function itemWidth(slider) {
@@ -156,6 +157,7 @@ cards.forEach(card => cardObserver.observe(card));
 // ── VÍDEOS — autoplay al entrar en viewport ──
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(min-width: 901px)').matches) return;
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       entry.isIntersecting ? entry.target.play() : entry.target.pause();
@@ -222,8 +224,8 @@ const translations = {
     ariaCode4: 'Ver código de esta web',
     ariaDemo5: 'Ver web de Hitten',
     ariaCode5: 'Ver código de Hitten',
-    transicionArchive: 'Dani Meseguer Designs Archive (últimos proyectos)',
-    transicionBienvenido: 'Bienvenid@',
+    transicionArchive: 'Visual Archive',
+
     transicionSubtitle: 'Aquí tienes algunos trabajos de diseño gráfico que he realizado.',
     designKicker: '02 / Trabajo Visual',
     designEyebrow: 'Desde 2015',
@@ -299,8 +301,8 @@ const translations = {
     ariaCode4: "View this website's code",
     ariaDemo5: 'View Hitten website',
     ariaCode5: 'View Hitten code',
-    transicionArchive: 'Dani Meseguer Designs Archive (latest projects)',
-    transicionBienvenido: 'Welcome',
+    transicionArchive: 'Visual Archive',
+
     transicionSubtitle: "Here are some graphic design works I've done.",
     designKicker: '02 / Visual Work',
     designEyebrow: 'Since 2015',
@@ -421,6 +423,7 @@ applyTranslations(currentLang);
   }
 
   function openVariantLightbox(button) {
+    if (!desktopQuery.matches) return;
     const img = button.querySelector('img');
     if (!img || variantImgs.length < 2 || variantLabels.length < 2) return;
 
@@ -558,29 +561,3 @@ if (timeline) {
     });
   }, { threshold: 0.6 }).observe(timeline);
 }
-
-// ── CURSOR ROJO — zona oscura ──
-(function () {
-  const cursor = document.querySelector('.custom-cursor');
-  if (!cursor) return;
-  let darkCount = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-  });
-
-  document.querySelectorAll('.transicion, .loudamps-design, .contacto').forEach(section => {
-    section.addEventListener('mouseenter', () => {
-      darkCount++;
-      cursor.classList.add('is-active');
-      document.body.style.cursor = 'none';
-    });
-    section.addEventListener('mouseleave', () => {
-      darkCount = Math.max(0, darkCount - 1);
-      if (darkCount === 0) {
-        cursor.classList.remove('is-active');
-        document.body.style.cursor = '';
-      }
-    });
-  });
-}());

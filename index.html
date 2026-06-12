@@ -320,9 +320,9 @@
   <!-- TRANSICIÓN / WILDSIDE -->
   <section class="transicion" id="transicion">
     <div class="container">
-      <span class="transicion-archive" data-i18n="transicionArchive">Dani Meseguer Designs Archive (últimos proyectos)</span>
+      <span class="transicion-archive" data-i18n="transicionArchive">Visual Archive</span>
       <h2 class="transicion-title">Wildside</h2>
-      <span class="transicion-bienvenido" data-i18n="transicionBienvenido">Bienvenid@</span>
+      <span class="transicion-welcome">WELCOME</span>
       <p class="transicion-subtitle" data-i18n="transicionSubtitle">Aquí tienes algunos trabajos de diseño gráfico que he realizado.</p>
     </div>
   </section>
@@ -350,6 +350,7 @@
               </div>
               <span class="design-label">Vigilhunter</span>
               <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+              <span class="design-credit">© High Roller Records (Alemania)</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
@@ -364,6 +365,7 @@
               </div>
               <span class="design-label">Hitten — Triumph and Tragedy</span>
               <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+              <span class="design-credit">© High Roller Records (Alemania)</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
@@ -371,13 +373,23 @@
               </div>
               <span class="design-label">Hitten — While Passion Lasts</span>
               <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+              <span class="design-credit">© High Roller Records (Alemania)</span>
             </div>
             <div class="design-item">
               <div class="design-img design-img--vinyl">
-                <img src="img/hitten-twist-of-fate-lp-galaxy~2.webp" alt="Portada del LP Twist of Fate de Hitten, edición vinilo galaxy" loading="lazy">
+                <img src="img/diseno-grafico/stateofshock2.jpg" alt="Portada del LP State of Shock, edición vinilo" loading="lazy">
               </div>
-              <span class="design-label">Hitten — Twist of Fate</span>
+              <span class="design-label">Hitten — State of Shock</span>
               <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+              <span class="design-credit">© High Roller Records (Alemania)</span>
+            </div>
+            <div class="design-item">
+              <div class="design-img design-img--vinyl">
+                <img src="img/diseno-grafico/hittentwist.jpg" alt="Portada del LP Twist Of Fate de Hitten" loading="lazy">
+              </div>
+              <span class="design-label">HITTEN - Twist Of Fate</span>
+              <span class="design-sublabel" data-i18n="sublabelComplete">Diseño y maquetación completa</span>
+              <span class="design-credit">© High Roller Records (Alemania)</span>
             </div>
           </div>
           <div class="slider-dots slider-dots--design" id="vinylDots">
@@ -386,6 +398,7 @@
             <button class="dot" data-idx="2" aria-label="Ir al vinilo 3"></button>
             <button class="dot" data-idx="3" aria-label="Ir al vinilo 4"></button>
             <button class="dot" data-idx="4" aria-label="Ir al vinilo 5"></button>
+            <button class="dot" data-idx="5" aria-label="Ir al vinilo 6"></button>
           </div>
         </div>
 
@@ -498,7 +511,7 @@
         <!-- REELS PUBLICITARIOS -->
         <div class="design-category">
           <span class="design-cat-label" data-i18n="designCatReels">Reels Publicitarios</span>
-          <div class="design-grid design-grid--reels">
+          <div class="design-grid design-grid--reels" id="reelsSlider">
             <div class="design-item design-item--video">
               <div class="design-img design-img--video">
                 <video preload="metadata" poster="img/diseno-grafico/reel-spotify-poster.png" muted loop playsinline controls>
@@ -527,6 +540,12 @@
                 </video>
               </div>
             </div>
+          </div>
+          <div class="slider-dots slider-dots--design slider-dots--reels-mobile" id="reelsDots">
+            <span class="dot dot--active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           </div>
         </div>
 
@@ -565,8 +584,6 @@
       <figcaption class="design-lightbox__caption"></figcaption>
     </figure>
   </div>
-
-  <div class="custom-cursor" aria-hidden="true"></div>
 
   <!-- JS -->
   <script src="script.js"></script>
