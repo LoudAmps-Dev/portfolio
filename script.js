@@ -239,15 +239,18 @@ const translations = {
     statLabel4: 'Experiencia de vida',
     designCatVinyl: 'Vinilo &amp; Print',
     designCatPosters: 'Cartelería de Gira',
+    designCatIdentity: 'Identidad Visual',
     designCatMerch: 'Merchandising',
     designCatReels: 'Reels Publicitarios',
     sublabelComplete: 'Diseño y maquetación completa',
     sublabelConcertPoster: 'Cartel de Concierto',
     sublabelTourPoster: 'Cartel de gira',
+    sublabelIdentity: 'Rediseño, tratamiento 3D y sistema de aplicaciones',
     sublabelMerch: 'Diseño de merchandising',
     sublabelLargePrint: 'Diseño e impresión a gran escala',
     sublabelTshirt: 'Diseño de camiseta',
     sublabelConcept: 'Prueba de concepto',
+    identityVioletDesc: 'Evolución de un logotipo plano hacia una marca con presencia escénica: chrome 3D, biseles afilados, reflejos controlados y glow violeta para convertir la identidad en una pieza de impacto, lista para merchandising, soportes promocionales y comunicación musical.',
     labelRollUp: 'Hitten - Roll Up publicitario',
     labelTshirtDesign: 'Diseño Camiseta',
     designCatWeb: 'Web',
@@ -318,15 +321,18 @@ const translations = {
     statLabel4: 'Life experience',
     designCatVinyl: 'Vinyl &amp; Print',
     designCatPosters: 'Tour Posters',
+    designCatIdentity: 'Visual Identity',
     designCatMerch: 'Merchandising',
     designCatReels: 'Promotional Reels',
     sublabelComplete: 'Design and full layout',
     sublabelConcertPoster: 'Concert Poster',
     sublabelTourPoster: 'Tour Poster',
+    sublabelIdentity: 'Redesign, 3D treatment and application system',
     sublabelMerch: 'Merchandise design',
     sublabelLargePrint: 'Design and large-format printing',
     sublabelTshirt: 'T-shirt design',
     sublabelConcept: 'Concept mock-up',
+    identityVioletDesc: 'A flat logo evolved into a stage-ready visual identity: chrome 3D, sharp bevels, controlled reflections and violet glow, turning the mark into a high-impact asset built for merchandise, promotional formats and music communication.',
     labelRollUp: 'Hitten - Advertising Roll Up',
     labelTshirtDesign: 'T-Shirt Design',
     designCatWeb: 'Web',
@@ -389,7 +395,7 @@ applyTranslations(currentLang);
   const lightboxCaption = lightbox.querySelector('.design-lightbox__caption');
   const closeBtn = lightbox.querySelector('.design-lightbox__close');
   const items = document.querySelectorAll(
-    '.design-img--vinyl img, .design-img--poster img, .design-img--merch:not(.design-img--variant) img'
+    '.design-img--vinyl img, .design-img--poster img, .design-img--identity img, .design-img--merch:not(.design-img--variant) img'
   );
   const variantButtons = document.querySelectorAll('.design-img--variant');
   let activeTrigger = null;

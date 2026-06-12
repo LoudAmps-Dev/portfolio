@@ -263,6 +263,10 @@
 
 .design-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .design-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.design-grid--identity {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 980px;
+}
 .design-grid--reels {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1.35rem, 2.6vw, 2rem);
@@ -316,6 +320,7 @@
 .design-img--vinyl  { --design-media-ratio: 1 / 1; }
 .design-img--poster { --design-media-ratio: 4 / 5; }
 .design-img--merch  { --design-media-ratio: 1 / 1; }
+.design-img--identity { --design-media-ratio: 3 / 2; }
 .design-img--video  { --design-media-ratio: 9 / 16; padding: 0; background: #050505; }
 
 .design-item:hover .design-img {
@@ -325,6 +330,7 @@
 }
 
 .design-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.design-img--contain img { object-fit: contain; padding: .5rem; }
 .design-img--merch img { object-fit: contain; padding: .75rem; }
 
 .design-img--variant { appearance: none; width: 100%; padding: 0; cursor: pointer; }
@@ -367,6 +373,14 @@
   margin-top: .22rem;
   padding: 0 .25rem;
   line-height: 1.25;
+}
+
+.design-description {
+  max-width: 760px;
+  margin: .62rem .25rem 0;
+  color: rgba(255,255,255,0.68);
+  font-size: clamp(.92rem, 1.15vw, 1.02rem);
+  line-height: 1.55;
 }
 
 /* ── SLIDER DOTS (zona oscura) ── */
@@ -530,6 +544,7 @@ body.lightbox-open { overflow: hidden; cursor: auto !important; }
   .design-grid,
   .design-grid--3,
   .design-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .design-grid--identity { grid-template-columns: minmax(0, 1fr); }
 
   .loudamps-design .container { padding-top: 1.5rem; padding-bottom: 3rem; }
 
@@ -553,6 +568,7 @@ body.lightbox-open { overflow: hidden; cursor: auto !important; }
   .design-grid,
   .design-grid--3,
   .design-grid--4 { grid-template-columns: 1fr; }
+  .design-grid--identity { grid-template-columns: minmax(0, 1fr); }
 
   .design-grid--reels {
     display: flex;
