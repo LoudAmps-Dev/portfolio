@@ -43,7 +43,7 @@ Sección de presentación. Explica el recorrido: diseño gráfico desde 2015, fr
 Tres tarjetas:
 - **Esta web** — el propio portfolio.
 - **Best Nutrition** — web multi-página para una clínica de nutrición con sistema de reserva de citas: selección de servicio, calendario, franjas horarias, validación en cliente y confirmación en tiempo real.
-- **Riffs on Time** — herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF. Demo en [riffsontime.netlify.app](https://riffsontime.netlify.app/).
+- **Riffs on Time** — herramienta para músicos que permite crear setlists de concierto con duración exacta. Búsqueda de canciones en Spotify, suma automática de tiempos y exportación a Word y PDF. Demo en [loudamps-dev.github.io/riffsontime](https://loudamps-dev.github.io/riffsontime/).
 
 ### Wildside (transición)
 Sección de separación entre los dos mundos. Usa una foto de concierto como fondo con un degradado de blanco a negro. El título "WILDSIDE" tiene una animación de glitch que se reinicia cada vez que la sección entra en pantalla (IntersectionObserver).
