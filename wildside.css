@@ -267,6 +267,10 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: 1180px;
 }
+.design-grid--artwork {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1180px;
+}
 .design-grid--reels {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1.35rem, 2.6vw, 2rem);
@@ -321,6 +325,7 @@
 .design-img--poster { --design-media-ratio: 4 / 5; }
 .design-img--merch  { --design-media-ratio: 1 / 1; }
 .design-img--identity { --design-media-ratio: 3 / 2; }
+.design-img--artwork { --design-media-ratio: 16 / 10; }
 .design-img--video  { --design-media-ratio: 9 / 16; padding: 0; background: #050505; }
 
 .design-item:hover .design-img {
