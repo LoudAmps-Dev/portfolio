@@ -74,6 +74,23 @@ const cardObserver = new IntersectionObserver((entries) => {
 }, { root: slider, threshold: 0.12 });
 cards.forEach(card => cardObserver.observe(card));
 
+// ── STUDIO SYSTEM — entrada escalonada ──
+const studioCards = document.querySelectorAll('.studio-card');
+if (studioCards.length) {
+  const studioObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const delay = Number(entry.target.dataset.revealDelay || 0);
+      setTimeout(() => entry.target.classList.add('is-visible'), delay);
+      studioObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.22 });
+  studioCards.forEach((card, idx) => {
+    card.dataset.revealDelay = String(idx * 120);
+    studioObserver.observe(card);
+  });
+}
+
 // ── SLIDER DE PROYECTOS ──
 (function () {
   const slider = document.getElementById('proyectosSlider');
@@ -201,6 +218,14 @@ const translations = {
     sectionTitleAbout: 'Diseño y desarrollo frontend.<br>Una sola forma de pensar la interfaz.',
     aboutText1: 'Desde 2015 diseño para bandas y proyectos musicales — carteles, logos, portadas de vinilo, booklets, reels y lyric videos. Una trayectoria construida proyecto a proyecto, donde el resultado final ha pesado siempre más que la titulación.',
     aboutText2: 'En 2026 incorporo el desarrollo web a mi perfil. Trabajo con HTML, CSS y JavaScript, y aplico mi criterio visual desde el primer momento del proyecto. Diseñar antes de programar cambia la forma de construir una interfaz.',
+    studioLabel: 'Sistema de trabajo',
+    studioTitle: 'La parte visual no va al final.<br>Entra desde el primer boceto.',
+    studioCard1Title: 'Dirección visual',
+    studioCard1Text: 'Antes del código: tono, jerarquía, ritmo y una idea clara de cómo debe sentirse la interfaz.',
+    studioCard2Title: 'Frontend limpio',
+    studioCard2Text: 'HTML, CSS y JavaScript con estructura simple, responsive y fácil de mantener.',
+    studioCard3Title: 'Pulido final',
+    studioCard3Text: 'Microinteracciones, accesibilidad básica, detalle visual y despliegue sin ruido innecesario.',
     sectionLabelProjects: 'Trabajo web',
     sectionTitleProjects: 'Lo que he construido',
     card1Title: 'Riffs on Time',
@@ -251,6 +276,7 @@ const translations = {
     sublabelTshirt: 'Diseño de camiseta',
     sublabelConcept: 'Prueba de concepto',
     identityVioletDesc: 'Evolución de un logotipo plano hacia una marca con presencia escénica: chrome 3D, biseles afilados, reflejos controlados y glow violeta para convertir la identidad en una pieza de impacto, lista para merchandising, soportes promocionales y comunicación musical.',
+    identityHittenDesc: 'Relectura del logotipo original sin suavizar su carácter: se mantienen las puntas, la tensión horizontal y el peso de banda clásica, pero se reconstruyen los planos con biseles cromados, reflejos cyan y cortes ámbar. El estudio baja el logo a aplicaciones reales —pin metálico, backdrop negro y camiseta vintage— para comprobar contraste, escala y presencia antes de cerrar la versión final.',
     labelRollUp: 'Hitten - Roll Up publicitario',
     labelTshirtDesign: 'Diseño Camiseta',
     designCatWeb: 'Web',
@@ -283,6 +309,14 @@ const translations = {
     sectionTitleAbout: 'Design and frontend development.<br>One way of thinking about interfaces.',
     aboutText1: "Since 2015 I've been designing for bands and music projects — posters, logos, vinyl covers, booklets, reels and lyric videos. A career built project by project, where the final result has always mattered more than the degree.",
     aboutText2: "In 2026 I added web development to my profile. I work with HTML, CSS and JavaScript, applying my visual judgment from the very first moment of a project. Designing before coding changes the way you build an interface.",
+    studioLabel: 'Working system',
+    studioTitle: 'The visual layer is not an afterthought.<br>It starts with the first sketch.',
+    studioCard1Title: 'Visual direction',
+    studioCard1Text: 'Before code: tone, hierarchy, rhythm and a clear idea of how the interface should feel.',
+    studioCard2Title: 'Clean frontend',
+    studioCard2Text: 'HTML, CSS and JavaScript with a simple, responsive and maintainable structure.',
+    studioCard3Title: 'Final polish',
+    studioCard3Text: 'Microinteractions, basic accessibility, visual detail and deployment without unnecessary noise.',
     sectionLabelProjects: 'Web work',
     sectionTitleProjects: "What I've built",
     card1Title: 'Riffs on Time',
@@ -333,6 +367,7 @@ const translations = {
     sublabelTshirt: 'T-shirt design',
     sublabelConcept: 'Concept mock-up',
     identityVioletDesc: 'A flat logo evolved into a stage-ready visual identity: chrome 3D, sharp bevels, controlled reflections and violet glow, turning the mark into a high-impact asset built for merchandise, promotional formats and music communication.',
+    identityHittenDesc: 'A reread of the original mark without sanding down its attitude: the spikes, horizontal tension and classic band weight stay intact, while the planes are rebuilt with chrome bevels, cyan reflections and amber cuts. The study tests the logo on real uses —metal pin, black live backdrop and vintage T-shirt— to check contrast, scale and presence before locking the final version.',
     labelRollUp: 'Hitten - Advertising Roll Up',
     labelTshirtDesign: 'T-Shirt Design',
     designCatWeb: 'Web',

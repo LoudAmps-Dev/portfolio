@@ -264,8 +264,8 @@
 .design-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .design-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .design-grid--identity {
-  grid-template-columns: minmax(0, 1fr);
-  max-width: 980px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1180px;
 }
 .design-grid--reels {
   grid-template-columns: repeat(4, minmax(0, 1fr));

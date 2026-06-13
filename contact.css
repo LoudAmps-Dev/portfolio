@@ -1,6 +1,6 @@
 /* ── CONTACTO PRO ── */
 .contacto-pro {
-  background: var(--pro-surface);
+  background-color: var(--pro-surface);
   border-top: 1px solid var(--pro-border);
   text-align: center;
   padding: 6rem 0;

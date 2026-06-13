@@ -4,9 +4,12 @@
   --pro-surface: #f8f7ff;
   --pro-accent: #7f77dd;
   --pro-accent-strong: #534ab7;
+  --pro-cyan: #18a999;
+  --pro-coral: #ff6b4a;
   --pro-title: #26215c;
   --pro-secondary: #5f5d58;
   --pro-border: #e8e6ff;
+  --pro-grid: rgba(83, 74, 183, 0.075);
 
   --music-bg: #000000;
   --music-surface: #111111;
@@ -28,7 +31,12 @@
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
-body { font-family: var(--font-body); background: var(--pro-bg); color: var(--pro-title); overflow-x: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--pro-bg);
+  color: var(--pro-title);
+  overflow-x: hidden;
+}
 a { text-decoration: none; }
 img { max-width: 100%; display: block; }
 
@@ -37,6 +45,17 @@ img { max-width: 100%; display: block; }
 
 /* ── SECCIONES BASE ── */
 section { padding: 6rem 0; }
+
+.hero,
+.sobre-mi,
+.studio-system,
+.proyectos,
+.contacto-pro {
+  background-image:
+    linear-gradient(var(--pro-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pro-grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
 
 .section-label {
   display: block;
