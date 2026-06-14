@@ -254,6 +254,20 @@
   background: linear-gradient(90deg, rgba(255,32,32,0.7), transparent);
 }
 
+.design-section-note {
+  max-width: 920px;
+  margin: -.2rem 0 1.35rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255,32,32,0.72);
+}
+
+.design-section-note p {
+  margin: 0;
+  color: rgba(255,255,255,0.72);
+  font-size: clamp(.95rem, 1.15vw, 1.05rem);
+  line-height: 1.65;
+}
+
 /* ── DESIGN GRID ── */
 .design-grid {
   display: grid;
@@ -275,6 +289,18 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1.35rem, 2.6vw, 2rem);
   max-width: 920px;
+}
+
+.design-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.design-featured-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1180px;
 }
 
 /* ── DESIGN SLIDER ── */
@@ -309,6 +335,10 @@
   min-width: 0;
 }
 
+.design-item--featured {
+  cursor: default;
+}
+
 .design-img {
   position: relative;
   aspect-ratio: var(--design-media-ratio);
@@ -324,6 +354,8 @@
 .design-img--vinyl  { --design-media-ratio: 1 / 1; }
 .design-img--poster { --design-media-ratio: 4 / 5; }
 .design-img--merch  { --design-media-ratio: 1 / 1; }
+.design-img--merch-study { --design-media-ratio: 16 / 9; }
+.design-img--large-format { --design-media-ratio: 16 / 9; }
 .design-img--identity { --design-media-ratio: 3 / 2; }
 .design-img--artwork { --design-media-ratio: 16 / 10; }
 .design-img--video  { --design-media-ratio: 9 / 16; padding: 0; background: #050505; }
@@ -357,6 +389,11 @@
   margin-top: .72rem;
   padding: 0 .25rem;
   line-height: 1.08;
+}
+
+.design-item--featured .design-label {
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  margin-top: .95rem;
 }
 
 .design-sublabel {
@@ -550,6 +587,7 @@ body.lightbox-open { overflow: hidden; cursor: auto !important; }
   .design-grid--3,
   .design-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .design-grid--identity { grid-template-columns: minmax(0, 1fr); }
+  .design-featured-grid { grid-template-columns: 1fr; }
 
   .loudamps-design .container { padding-top: 1.5rem; padding-bottom: 3rem; }
 
@@ -574,6 +612,7 @@ body.lightbox-open { overflow: hidden; cursor: auto !important; }
   .design-grid--3,
   .design-grid--4 { grid-template-columns: 1fr; }
   .design-grid--identity { grid-template-columns: minmax(0, 1fr); }
+  .design-featured-grid { gap: 1.8rem; }
 
   .design-grid--reels {
     display: flex;

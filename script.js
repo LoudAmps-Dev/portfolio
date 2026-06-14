@@ -138,7 +138,6 @@ if (studioCards.length) {
   const sliders = [
     { slider: document.getElementById('vinylSlider'), dots: document.querySelectorAll('#vinylDots .dot') },
     { slider: document.getElementById('posterSlider'), dots: document.querySelectorAll('#posterDots .dot') },
-    { slider: document.getElementById('merchSlider'), dots: document.querySelectorAll('#merchDots .dot') },
     { slider: document.getElementById('reelsSlider'), dots: document.querySelectorAll('#reelsDots .dot') },
   ];
 
@@ -152,21 +151,33 @@ if (studioCards.length) {
   sliders.forEach(({ slider, dots }) => {
     if (!slider || !dots.length) return;
 
+    function pageCount() {
+      const width = itemWidth(slider);
+      if (!width) return dots.length;
+      return Math.max(1, Math.min(dots.length, Math.round((slider.scrollWidth - slider.offsetWidth) / width) + 1));
+    }
+
     function updateDots() {
       const width = itemWidth(slider);
       if (!width) return;
+      const pages = pageCount();
       const idx = Math.round(slider.scrollLeft / width);
-      const activeIdx = Math.max(0, Math.min(idx, dots.length - 1));
-      dots.forEach((dot, i) => dot.classList.toggle('dot--active', i === activeIdx));
+      const activeIdx = Math.max(0, Math.min(idx, pages - 1));
+      dots.forEach((dot, i) => {
+        dot.hidden = i >= pages;
+        dot.classList.toggle('dot--active', i === activeIdx);
+      });
     }
 
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
+        if (dot.hidden) return;
         slider.scrollTo({ left: i * itemWidth(slider), behavior: 'smooth' });
       });
     });
 
     slider.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', updateDots);
     updateDots();
   });
 }());
@@ -257,7 +268,7 @@ const translations = {
     designKicker: '02 / Trabajo Visual',
     designEyebrow: 'Desde 2015',
     designTitle: 'Diseño gráfico para<br>bandas de rock duro.',
-    designBody: 'Cartelería, identidades y maquetación completa para imprenta. Portadas, inserts y booklets de vinilo y CD. Reels, lyric videos y montaje de videoclips a partir de los brutos.',
+    designBody: 'Estudios de adaptación gráfica, identidad visual y dirección de arte para música independiente. Merchandising, portadas, maquetación para imprenta, cartelería, reels y piezas promocionales.',
     statLabel1: 'Discos compuestos',
     statLabel2: 'Países rockeados',
     statLabel3: 'Km en furgoneta',
@@ -267,6 +278,7 @@ const translations = {
     designCatPosters: 'Cartelería de Gira',
     designCatIdentity: 'Identidad Visual',
     designCatMerch: 'Merchandising',
+    designCatLargeFormat: 'Producción Impresa &amp; Gran Formato',
     designCatReels: 'Reels Publicitarios',
     sublabelComplete: 'Diseño y maquetación completa',
     sublabelPrintProduction: 'Backcover, interiores y arte final para imprenta',
@@ -278,10 +290,18 @@ const translations = {
     sublabelLargePrint: 'Diseño e impresión a gran escala',
     sublabelTshirt: 'Diseño de camiseta',
     sublabelConcept: 'Prueba de concepto',
+    vinylSectionNote: 'Diseño artístico y producción gráfica para ediciones físicas reales: back covers, layouts interiores, labels de vinilo, CDs y, en algunos lanzamientos, cinta cassette. Cada pieza se construye para hacer matching con la portada original y mantener una identidad coherente en todo el objeto musical, preparada para distribución internacional a través de sellos europeos como High Roller Records.',
     artworkAlacranDesc: 'Trabajo desarrollado desde la idea inicial hasta el arte final: composición, ilustración principal, tensión simbólica y acabado gráfico pensado para funcionar como portada, pieza impresa y objeto musical.',
     artworkShekenDesc: 'Sistema visual construido alrededor de una arquitectura gótica, negro profundo, púrpura ocultista y oro envejecido. Cada elemento —castillo, luna, estrellas, cruz y textura— está planteado para sostener una narrativa de misterio, poder antiguo y rebelión.',
     identityVioletDesc: 'Evolución de un logotipo plano hacia una marca con presencia escénica: chrome 3D, biseles afilados, reflejos controlados y glow violeta para convertir la identidad en una pieza de impacto, lista para merchandising, soportes promocionales y comunicación musical.',
     identityHittenDesc: 'Relectura del logotipo original sin suavizar su carácter: se mantienen las puntas, la tensión horizontal y el peso de banda clásica, pero se reconstruyen los planos con biseles cromados, reflejos cyan y cortes ámbar. El estudio baja el logo a aplicaciones reales —pin metálico, backdrop negro y camiseta vintage— para comprobar contraste, escala y presencia antes de cerrar la versión final.',
+    merchCiclonSublabel: 'Adaptación de artwork a gráfica textil',
+    merchCiclonDesc: 'Estudio comparativo que muestra la traducción del artwork original a camiseta: selección de figura, reducción cromática, contraste, textura de tinta, efecto vintage, interacción con la tela, mockup final y pieza promocional para redes. Más que un diseño aislado, enseña criterio de producción y adaptación visual a un soporte real.',
+    merchHittenSublabel: 'Sistema de adaptación textil multiformato',
+    merchHittenDesc: 'Análisis de adaptación gráfica desde el artwork original hacia dos soportes textiles: raglan 3/4 y camiseta negra básica. El estudio conserva composición, jerarquía, iconografía y lenguaje visual de la pieza madre, optimizando la lectura en impresión mediante reducción tonal, reencuadre, protagonismo del logotipo, control tipográfico y pruebas de acabado sobre prenda.',
+    largeFormatRollupTitle: 'Hitten — Roll-up promocional',
+    largeFormatRollupSublabel: 'Diseño digital, preprensa y producción final instalada',
+    largeFormatRollupDesc: 'Estudio de producción para roll-up de 850 x 2000 mm, desde el arte final hasta la pieza instalada. La lámina documenta adaptación a escala, legibilidad a distancia, jerarquía tipográfica, preparación de archivo maestro en InDesign, modo CMYK, perfil Coated FOGRA39, resolución efectiva, sangrados, separación de tintas y exportación PDF/X-1a:2001 para imprenta.',
     labelRollUp: 'Hitten - Roll Up publicitario',
     labelTshirtDesign: 'Diseño Camiseta',
     designCatWeb: 'Web',
@@ -353,7 +373,7 @@ const translations = {
     designKicker: '02 / Visual Work',
     designEyebrow: 'Since 2015',
     designTitle: 'Graphic design for<br>hard rock bands.',
-    designBody: 'Posters, identities and complete print-ready layouts. Vinyl and CD covers, inserts and booklets. Reels, lyric videos and music video editing from raw footage.',
+    designBody: 'Graphic adaptation studies, visual identity and art direction for independent music. Merchandising, cover artwork, print-ready layouts, posters, reels and promotional assets.',
     statLabel1: 'Albums recorded',
     statLabel2: 'Countries rocked',
     statLabel3: 'Km in the van',
@@ -363,6 +383,7 @@ const translations = {
     designCatPosters: 'Tour Posters',
     designCatIdentity: 'Visual Identity',
     designCatMerch: 'Merchandising',
+    designCatLargeFormat: 'Print Production &amp; Large Format',
     designCatReels: 'Promotional Reels',
     sublabelComplete: 'Design and full layout',
     sublabelPrintProduction: 'Back cover, inner layout and print-ready artwork',
@@ -374,10 +395,18 @@ const translations = {
     sublabelLargePrint: 'Design and large-format printing',
     sublabelTshirt: 'T-shirt design',
     sublabelConcept: 'Concept mock-up',
+    vinylSectionNote: 'Art direction and graphic production for real physical releases: back covers, inner layouts, vinyl labels, CDs and, on selected releases, cassette editions. Each piece is built to match the original cover artwork and keep a coherent identity across the whole musical object, prepared for international distribution through European labels such as High Roller Records.',
     artworkAlacranDesc: 'Developed from the initial idea through to final artwork: composition, main illustration, symbolic tension and a graphic finish built to work as a cover, printed piece and musical object.',
     artworkShekenDesc: 'A visual system built around gothic architecture, deep black, occult purple and aged gold. Each element —castle, moon, stars, cross and texture— is there to carry a narrative of mystery, ancient power and rebellion.',
     identityVioletDesc: 'A flat logo evolved into a stage-ready visual identity: chrome 3D, sharp bevels, controlled reflections and violet glow, turning the mark into a high-impact asset built for merchandise, promotional formats and music communication.',
     identityHittenDesc: 'A reread of the original mark without sanding down its attitude: the spikes, horizontal tension and classic band weight stay intact, while the planes are rebuilt with chrome bevels, cyan reflections and amber cuts. The study tests the logo on real uses —metal pin, black live backdrop and vintage T-shirt— to check contrast, scale and presence before locking the final version.',
+    merchCiclonSublabel: 'Artwork adaptation for textile graphics',
+    merchCiclonDesc: 'A comparative study showing how the original artwork was translated into a T-shirt graphic: figure selection, colour reduction, contrast, ink texture, vintage treatment, interaction with fabric, final mock-up and promotional social post. More than an isolated design, it shows production judgment and visual adaptation to a real format.',
+    merchHittenSublabel: 'Multi-format textile adaptation system',
+    merchHittenDesc: 'A graphic adaptation analysis from the original artwork into two textile formats: 3/4 raglan and standard black T-shirt. The study preserves composition, hierarchy, iconography and the source artwork’s visual language, while improving print readability through tonal reduction, reframing, logo prominence, typographic control and garment-finish testing.',
+    largeFormatRollupTitle: 'Hitten — Promotional roll-up',
+    largeFormatRollupSublabel: 'Digital design, prepress and installed final production',
+    largeFormatRollupDesc: 'Production study for an 850 x 2000 mm roll-up, from final artwork to the installed piece. The layout documents scale adaptation, distance readability, typographic hierarchy, InDesign master-file setup, CMYK mode, Coated FOGRA39 profile, effective resolution, bleed, ink separations and PDF/X-1a:2001 export for print.',
     labelRollUp: 'Hitten - Advertising Roll Up',
     labelTshirtDesign: 'T-Shirt Design',
     designCatWeb: 'Web',
