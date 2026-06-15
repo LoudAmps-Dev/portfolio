@@ -604,8 +604,11 @@ body.design-page {
   border-block: 1px solid var(--gd-line);
   backdrop-filter: blur(10px);
   padding: clamp(1rem, 2vw, 1.4rem) 0;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
 }
+.gd-tools::-webkit-scrollbar { display: none; }
 
 .gd-tools__grid {
   display: flex;
@@ -623,7 +626,7 @@ body.design-page {
   align-items: center;
   gap: .55rem;
   margin: 0;
-  padding: 0 clamp(1.2rem, 2.5vw, 2rem);
+  padding: 0 clamp(.6rem, 2.5vw, 2rem);
   white-space: nowrap;
   flex-shrink: 0;
 }
