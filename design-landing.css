@@ -603,70 +603,69 @@ body.design-page {
   background: rgba(7,7,7,0.74);
   border-block: 1px solid var(--gd-line);
   backdrop-filter: blur(10px);
-  padding: clamp(1.4rem, 3vw, 2rem) 0;
+  padding: clamp(1rem, 2vw, 1.4rem) 0;
+  overflow: hidden;
 }
 
 .gd-tools__grid {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(1rem, 3vw, 2rem);
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.gd-tools__grid::-webkit-scrollbar { display: none; }
 
 .gd-tool {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: .55rem;
   margin: 0;
+  padding: 0 clamp(1.2rem, 2.5vw, 2rem);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.gd-tool img {
-  width: 36px;
-  height: 36px;
-  opacity: .78;
-  transition: opacity .2s;
-}
-
-.gd-tool:hover img {
-  opacity: 1;
+.gd-tool + .gd-tool {
+  border-left: 1px solid var(--gd-line);
 }
 
 .gd-tool__badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--c, #333);
-  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: rgba(247,242,234,0.05);
+  border: 1px solid rgba(247,242,234,0.15);
+  color: rgba(247,242,234,0.82);
   font-family: var(--font-pro);
-  font-size: .75rem;
+  font-size: .7rem;
   font-weight: 700;
-  letter-spacing: .02em;
-  opacity: .8;
-  transition: opacity .2s;
+  letter-spacing: .03em;
+  transition: border-color .2s, color .2s;
   flex-shrink: 0;
 }
 
-.gd-tool__badge--mj {
-  background: transparent;
-  border: 1px solid rgba(247,242,234,0.26);
-  color: var(--gd-text);
-}
-
 .gd-tool:hover .gd-tool__badge {
-  opacity: 1;
+  border-color: rgba(247,242,234,0.36);
+  color: var(--gd-text);
 }
 
 .gd-tool figcaption {
   color: var(--gd-soft);
-  font-size: .64rem;
+  font-size: .62rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
+  transition: color .2s;
+}
+
+.gd-tool:hover figcaption {
+  color: var(--gd-muted);
 }
 
 .gd-contact-location {
