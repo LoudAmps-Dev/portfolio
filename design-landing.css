@@ -599,6 +599,85 @@ body.design-page {
   font-size: .93rem;
 }
 
+.gd-tools {
+  background: rgba(7,7,7,0.74);
+  border-block: 1px solid var(--gd-line);
+  backdrop-filter: blur(10px);
+  padding: clamp(1.4rem, 3vw, 2rem) 0;
+}
+
+.gd-tools__grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.gd-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  margin: 0;
+}
+
+.gd-tool img {
+  width: 36px;
+  height: 36px;
+  opacity: .78;
+  transition: opacity .2s;
+}
+
+.gd-tool:hover img {
+  opacity: 1;
+}
+
+.gd-tool__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--c, #333);
+  color: #fff;
+  font-family: var(--font-pro);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  opacity: .8;
+  transition: opacity .2s;
+  flex-shrink: 0;
+}
+
+.gd-tool__badge--mj {
+  background: transparent;
+  border: 1px solid rgba(247,242,234,0.26);
+  color: var(--gd-text);
+}
+
+.gd-tool:hover .gd-tool__badge {
+  opacity: 1;
+}
+
+.gd-tool figcaption {
+  color: var(--gd-soft);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.gd-contact-location {
+  display: block;
+  color: var(--gd-gold);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
 .gd-contact {
   padding: clamp(5rem, 10vw, 8rem) 0;
   background:
@@ -619,23 +698,24 @@ body.design-page {
 }
 
 .gd-contact-profile {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: .85rem;
-  margin-bottom: 1.35rem;
-  padding: .48rem .72rem .48rem .48rem;
-  border: 1px solid rgba(247,242,234,0.12);
-  border-radius: 999px;
-  background: rgba(0,0,0,0.22);
-  text-align: left;
+  gap: .3rem;
+  margin-bottom: 1.6rem;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: center;
 }
 
 .gd-contact-profile img {
-  width: 54px;
-  height: 54px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(216,181,109,0.34);
+  border: 2px solid rgba(216,181,109,0.5);
+  margin-bottom: .55rem;
 }
 
 .gd-contact-profile strong,
@@ -646,14 +726,14 @@ body.design-page {
 .gd-contact-profile strong {
   color: var(--gd-text);
   font-family: var(--font-pro);
-  font-size: .98rem;
+  font-size: 1.05rem;
   line-height: 1.1;
 }
 
 .gd-contact-profile span {
-  margin-top: .16rem;
-  color: rgba(247,242,234,0.56);
-  font-size: .72rem;
+  margin-top: .1rem;
+  color: rgba(247,242,234,0.52);
+  font-size: .7rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -815,33 +895,6 @@ body.gd-lightbox-open {
     margin-top: 1.35rem;
   }
 
-  .gd-proof__grid {
-    display: flex;
-    gap: .75rem;
-    overflow-x: auto;
-    padding: .85rem clamp(1rem, 4vw, 2rem);
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    width: 100%;
-  }
-
-  .gd-proof__grid > div {
-    flex: 0 0 min(76vw, 300px);
-    min-height: 112px;
-    padding: 1rem;
-    border: 1px solid var(--gd-line);
-    border-radius: var(--gd-radius);
-    background: rgba(17,17,17,.72);
-    scroll-snap-align: start;
-  }
-
-  .gd-proof__grid > div:last-child {
-    border-right: 1px solid var(--gd-line);
-  }
-
-  .gd-proof__grid::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -872,15 +925,44 @@ body.gd-lightbox-open {
   }
 
   .gd-case-grid,
-  .gd-thumb-grid--five,
-  .gd-thumb-grid--posters,
-  .gd-thumb-grid--four,
   .gd-thumb-grid--two,
   .gd-thumb-grid--one,
-  .gd-reel-grid,
-  .gd-capability-grid,
   .gd-group-head {
     grid-template-columns: 1fr;
+  }
+
+  .gd-capability-grid,
+  .gd-reel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gd-thumb-grid--five,
+  .gd-thumb-grid--four,
+  .gd-thumb-grid--posters {
+    display: flex;
+    overflow-x: auto;
+    gap: .6rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: .4rem;
+    grid-template-columns: unset;
+  }
+
+  .gd-thumb-grid--five .gd-thumb,
+  .gd-thumb-grid--four .gd-thumb,
+  .gd-thumb-grid--posters .gd-thumb {
+    flex: 0 0 min(52vw, 180px);
+    scroll-snap-align: start;
+  }
+
+  .gd-thumb-grid--five::-webkit-scrollbar,
+  .gd-thumb-grid--four::-webkit-scrollbar,
+  .gd-thumb-grid--posters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gd-section {
+    padding: 3rem 0;
   }
 
 }
