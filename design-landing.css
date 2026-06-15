@@ -904,6 +904,25 @@ body.gd-lightbox-open {
 }
 
 @media (max-width: 640px) {
+  .gd-tools__grid {
+    justify-content: space-evenly;
+    padding: 0 .5rem;
+  }
+
+  .gd-tool {
+    padding: 0;
+    flex-direction: column;
+    gap: .3rem;
+  }
+
+  .gd-tool + .gd-tool {
+    border-left: none;
+  }
+
+  .gd-tool figcaption {
+    display: none;
+  }
+
   .gd-container {
     width: min(100% - 2rem, 1320px);
   }
