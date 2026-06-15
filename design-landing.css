@@ -303,25 +303,18 @@ body.design-page {
   background: var(--gd-surface);
   border: 1px solid var(--gd-line);
   border-radius: var(--gd-radius);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr);
 }
 
 .gd-case--hero {
+  display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, .55fr);
   margin-bottom: clamp(1.2rem, 3vw, 2rem);
 }
 
 .gd-case-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.25rem);
-}
-
-.gd-case-grid .gd-media {
-  aspect-ratio: unset;
-  height: 100%;
-  min-height: 220px;
 }
 
 .gd-media,
@@ -834,7 +827,7 @@ body.gd-lightbox-open {
 }
 
 @media (max-width: 1000px) {
-  .gd-case,
+  .gd-case--hero,
   .gd-hero__layout,
   .gd-section__head--split {
     grid-template-columns: 1fr;
@@ -846,9 +839,10 @@ body.gd-lightbox-open {
   }
 
   .gd-case-grid .gd-media {
-    min-height: 260px;
+    aspect-ratio: 16 / 9;
   }
 
+  .gd-case-grid,
   .gd-thumb-grid--five,
   .gd-thumb-grid--posters,
   .gd-thumb-grid--four,
@@ -933,6 +927,7 @@ body.gd-lightbox-open {
     font-size: .84rem;
   }
 
+  .gd-case-grid,
   .gd-thumb-grid--two,
   .gd-thumb-grid--one,
   .gd-group-head {
