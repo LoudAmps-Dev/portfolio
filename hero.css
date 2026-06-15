@@ -34,7 +34,7 @@
   bottom: clamp(3.5rem, 8vw, 7rem);
   z-index: 0;
   color: var(--pro-title);
-  opacity: 0.045;
+  opacity: 0.062;
   font-family: var(--font-pro);
   font-size: clamp(2.2rem, 7vw, 6.2rem);
   font-weight: 700;
