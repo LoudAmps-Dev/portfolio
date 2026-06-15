@@ -198,6 +198,10 @@
   .hero-title { font-size: clamp(3rem, 16vw, 4.6rem); }
   .hero::after { right: 1rem; bottom: 5rem; font-size: 2.8rem; }
   .hero-scroll { display: none; }
+  .hero-ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-height: 780px) and (min-width: 901px) {
