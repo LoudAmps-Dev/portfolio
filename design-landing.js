@@ -203,8 +203,8 @@ let currentLang = localStorage.getItem('lang') || 'es';
 function translate(lang) {
   const t = translations[lang] || translations.es;
   const cvHref = lang === 'es'
-    ? 'img/diseno-grafico/CV%20Daniel%20Meseguer%202026%20ES.pdf'
-    : 'img/diseno-grafico/CV%20Daniel%20Meseguer%202026%20EN.pdf';
+    ? 'img/CV%20Daniel%20Meseguer%202026%20ES.pdf'
+    : 'img/CV%20Daniel%20Meseguer%202026%20EN.pdf';
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
