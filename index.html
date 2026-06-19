@@ -31,6 +31,8 @@
 </head>
 <body>
 
+  <a href="#hero" class="skip-link" data-i18n="skipLink">Saltar al contenido</a>
+
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar" aria-label="Navegación principal">
     <div class="navbar-inner">
@@ -206,12 +208,36 @@
 
       <div class="proyectos-grid" id="proyectosSlider">
 
+        <article class="proyecto-card proyecto-card--pepe">
+          <div class="proyecto-img">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.56.04.png" alt="Web de Clínica Pepe Soler" loading="lazy">
+          </div>
+          <div class="proyecto-info">
+            <span class="card-num" aria-hidden="true">01</span>
+            <span class="card-badge card-badge--real" data-i18n="badgeReal">Cliente real</span>
+            <h3 data-i18n="card6Title">Clínica Pepe Soler</h3>
+            <p data-i18n="card6Desc">Rediseño y desarrollo de una web responsive para una clínica de osteopatía y fisioterapia, incorporando un flujo de solicitud de cita por WhatsApp sin backend y sin alterar su sistema manual de agenda.</p>
+            <div class="proyecto-tags">
+              <span class="tag-small">React</span>
+              <span class="tag-small">Vite</span>
+              <span class="tag-small">Responsive Design</span>
+              <span class="tag-small">UX</span>
+              <span class="tag-small">WhatsApp Flow</span>
+              <span class="tag-small">Healthcare</span>
+            </div>
+            <div class="proyecto-links">
+              <a href="https://clinica-pepe-soler.vercel.app/" target="_blank" rel="noopener noreferrer" class="proyecto-link" aria-label="Ver web de Clínica Pepe Soler" data-i18n="cardWeb" data-i18n-aria="ariaWeb6">Ver web →</a>
+              <a href="clinica-pepe-soler-case-study.html" class="proyecto-link-secondary" aria-label="Ver case study de Clínica Pepe Soler" data-i18n="cardCaseStudy" data-i18n-aria="ariaCase6">Ver case study →</a>
+            </div>
+          </div>
+        </article>
+
         <article class="proyecto-card proyecto-card--hitten">
           <div class="proyecto-img">
             <img src="img/webhitten-thumb.png" alt="Web oficial de Hitten" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <span class="card-num" aria-hidden="true">01</span>
+            <span class="card-num" aria-hidden="true">02</span>
             <span class="card-badge card-badge--real" data-i18n="badgeReal">Cliente real</span>
             <h3 data-i18n="card5Title">Hitten — Web oficial</h3>
             <p data-i18n="card5Desc">Sitio oficial para una banda internacional de hard rock: web principal, EPK para promotores, identidad visual, integración con Bandcamp y Bandsintown, datos estructurados y una presencia online preparada para contratación, gira y comunicación musical.</p>
@@ -234,7 +260,7 @@
             <img src="img/riffsontimelogo.png" alt="Captura de Riffs on Time" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <span class="card-num" aria-hidden="true">02</span>
+            <span class="card-num" aria-hidden="true">03</span>
             <span class="card-badge card-badge--practice" data-i18n="badgePractice">Caso práctico</span>
             <h3 data-i18n="card1Title">Riffs on Time</h3>
             <p data-i18n="card1Desc">Herramienta para músicos que resuelve un problema real de directo: crear setlists con duración exacta, buscar canciones en Spotify, calcular tiempos automáticamente y exportar el resultado a Word y PDF.</p>
@@ -256,7 +282,7 @@
             <img src="img/captura-portfolio.png" alt="Captura de esta web" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <span class="card-num" aria-hidden="true">03</span>
+            <span class="card-num" aria-hidden="true">04</span>
             <span class="card-badge card-badge--own" data-i18n="badgeOwn">Portfolio personal</span>
             <h3 data-i18n="card4Title">Esta web</h3>
             <p data-i18n="card4Desc">Portfolio propio desarrollado sin dependencias: sistema i18n, animaciones con IntersectionObserver, doble universo visual, efectos CSS y estructura responsive pensada para contar un perfil híbrido sin perder foco frontend.</p>
@@ -277,7 +303,7 @@
             <img src="img/webanimals-thumb.png" alt="Captura de Clínica Animals" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <span class="card-num" aria-hidden="true">04</span>
+            <span class="card-num" aria-hidden="true">05</span>
             <span class="card-badge card-badge--practice" data-i18n="badgePractice">Caso práctico</span>
             <h3 data-i18n="card3Title">Clínica Animals</h3>
             <p data-i18n="card3Desc">Web informativa para una clínica veterinaria con bilingüismo catalán/español, estado de apertura en tiempo real y carrusel automático de reseñas. Animaciones con IntersectionObserver, tarjetas de veterinarios con flip 3D en CSS y CTA directo a WhatsApp.</p>
@@ -299,7 +325,7 @@
             <img src="img/logoheader.png" alt="Captura de Best Nutrition" loading="lazy">
           </div>
           <div class="proyecto-info">
-            <span class="card-num" aria-hidden="true">05</span>
+            <span class="card-num" aria-hidden="true">06</span>
             <span class="card-badge card-badge--practice" data-i18n="badgePractice">Caso práctico</span>
             <h3 data-i18n="card2Title">Best Nutrition</h3>
             <p data-i18n="card2Desc">Web multi-página para una clínica de nutrición con sistema de reserva de citas funcional. Selección de servicio, fecha y franja horaria con validación en cliente, gestión de disponibilidad y confirmación de cita en tiempo real.</p>
@@ -324,6 +350,7 @@
         <button class="dot" data-idx="2" aria-label="Ir al proyecto 3"></button>
         <button class="dot" data-idx="3" aria-label="Ir al proyecto 4"></button>
         <button class="dot" data-idx="4" aria-label="Ir al proyecto 5"></button>
+        <button class="dot" data-idx="5" aria-label="Ir al proyecto 6"></button>
       </div>
     </div>
   </section>

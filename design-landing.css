@@ -225,6 +225,7 @@ body.design-page {
   padding: 0;
   background: rgba(7,7,7,0.74);
   border-block: 1px solid var(--gd-line);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -530,6 +531,7 @@ body.design-page {
   font-weight: 700;
   line-height: 1.15;
   text-align: left;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -605,6 +607,7 @@ body.design-page {
 .gd-tools {
   background: rgba(7,7,7,0.74);
   border-block: 1px solid var(--gd-line);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: clamp(1rem, 2vw, 1.4rem) 0;
   overflow-x: auto;
@@ -781,6 +784,7 @@ body.design-page {
   place-items: center;
   padding: clamp(1rem, 4vw, 3rem);
   background: rgba(0,0,0,0.86);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   opacity: 0;
   pointer-events: none;

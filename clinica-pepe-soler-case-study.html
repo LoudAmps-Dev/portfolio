@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study de Clínica Pepe Soler: rediseño web responsive y flujo de solicitud de cita por WhatsApp sin backend.">
+
+  <meta property="og:title" content="Clínica Pepe Soler — Case Study">
+  <meta property="og:description" content="Rediseño web para una clínica sanitaria local, con solicitud de cita por WhatsApp sin alterar su sistema manual de agenda.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.danimeseguer.com/clinica-pepe-soler-case-study.html">
+  <meta property="og:image" content="https://www.danimeseguer.com/img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.56.04.png">
+
+  <title>Clínica Pepe Soler — Case Study | Dani Meseguer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Syne:wght@400;600;700&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="case-study-pepe-soler.css">
+</head>
+<body class="case-study-page">
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <nav class="navbar" id="navbar" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="index.html#hero" class="nav-logo">Dani Meseguer<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#proyectos">Proyectos Web</a></li>
+        <li><a href="#solucion">Solución</a></li>
+        <li><a href="#tecnica">Decisiones técnicas</a></li>
+        <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
+      </ul>
+      <div class="navbar-controls">
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="case-hero">
+      <div class="case-container case-hero__grid">
+        <div class="case-hero__content">
+          <a class="case-back" href="index.html#proyectos">← Volver a proyectos</a>
+          <p class="case-kicker">Case study · Cliente real</p>
+          <h1>Clínica Pepe Soler</h1>
+          <p class="case-hero__subtitle">Rediseño web + mejora de solicitud de cita</p>
+          <p class="case-hero__lead">Rediseño y desarrollo de una web sanitaria responsive para una clínica local, incorporando un flujo de solicitud de cita por WhatsApp sin backend que mejora el primer contacto sin alterar el sistema manual de gestión del cliente.</p>
+          <div class="case-actions">
+            <a href="https://clinica-pepe-soler.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Ver web</a>
+          </div>
+          <dl class="case-meta" aria-label="Datos del proyecto">
+            <div>
+              <dt>Cliente</dt>
+              <dd>Clínica sanitaria local</dd>
+            </div>
+            <div>
+              <dt>Sector</dt>
+              <dd>Osteopatía y fisioterapia</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>React · Vite · CSS · WhatsApp links</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="case-hero__media" aria-label="Capturas de la web final">
+          <figure class="browser-frame browser-frame--desktop">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.56.04.png" alt="Captura desktop de la web final de Clínica Pepe Soler">
+          </figure>
+          <figure class="phone-frame" aria-label="Captura mobile de la web final">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Clínica%20Pepe%20Soler%20·%20Osteopatía%20y%20Fisioterapia%20en%20Murcia.png" alt="Captura mobile de la web final de Clínica Pepe Soler">
+            <figcaption>Vista responsive real</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-problem">
+      <div class="case-container case-two-col">
+        <div>
+          <p class="case-kicker">Problema</p>
+          <h2>Actualizar la web sin imponer una agenda digital.</h2>
+        </div>
+        <div class="case-copy">
+          <p>La clínica necesitaba actualizar su presencia digital y mejorar la experiencia en móvil. Además, el contacto para pedir cita dependía de llamadas o mensajes poco estructurados, pero el cliente no quería implantar una agenda online porque trabaja cómodamente con un sistema manual en papel.</p>
+          <ul class="case-list">
+            <li>Web anterior poco actual.</li>
+            <li>Experiencia responsive mejorable.</li>
+            <li>Contacto para cita poco estructurado.</li>
+            <li>Necesidad de mejorar sin digitalizar la agenda.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-before">
+      <div class="case-container">
+        <div class="before-intro">
+          <div>
+            <p class="case-kicker">Punto de partida</p>
+            <h2>La web anterior funcionaba, pero ya no representaba bien la calidad de la clínica.</h2>
+          </div>
+        </div>
+
+        <div class="before-diagnosis" aria-label="Diagnóstico de la web antigua">
+          <article>
+            <span aria-hidden="true">01</span>
+            <h3>Jerarquía visual débil</h3>
+            <p>El contenido era correcto, pero competía con banners, imágenes y botones tratados como piezas sueltas.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">02</span>
+            <h3>Estructura poco flexible</h3>
+            <p>La interfaz se sentía anclada a otra época, con navegación y galerías pensadas sobre todo para desktop.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">03</span>
+            <h3>Contacto con fricción</h3>
+            <p>Transmitía menos confianza que la consulta real y no guiaba bien al paciente para preparar una cita.</p>
+          </article>
+        </div>
+
+        <div class="before-grid">
+          <figure class="case-shot case-shot--old">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/pepe%20soler%20antigua%203.jpg" alt="Captura de la home antigua de Clínica Pepe Soler">
+            <figcaption><strong>Home anterior</strong><span>Tratamientos y accesos principales dentro de una composición muy estática.</span></figcaption>
+          </figure>
+          <figure class="case-shot case-shot--old">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Pepe%20Soler%20antigua%201.jpg" alt="Captura de instalaciones de la web antigua de Clínica Pepe Soler">
+            <figcaption><strong>Instalaciones</strong><span>Galería rígida con imágenes de distinto peso visual y poca lectura responsive.</span></figcaption>
+          </figure>
+          <figure class="case-shot case-shot--old">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/pepe%20soler%20antigua%202.jpg" alt="Captura de ubicación de la web antigua de Clínica Pepe Soler">
+            <figcaption><strong>Ubicación</strong><span>Mapas y botones gráficos que añadían carga y no escalaban bien en móvil.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-section--soft">
+      <div class="case-container">
+        <div class="case-section__head">
+          <p class="case-kicker">Objetivos</p>
+          <h2>Resolver lo importante con una solución pequeña y útil.</h2>
+        </div>
+        <div class="case-card-grid">
+          <article class="case-card">
+            <span aria-hidden="true">01</span>
+            <h3>Imagen actual</h3>
+            <p>Modernizar la presencia visual de la clínica sin perder cercanía ni confianza sanitaria.</p>
+          </article>
+          <article class="case-card">
+            <span aria-hidden="true">02</span>
+            <h3>Mejor responsive</h3>
+            <p>Ordenar navegación, contenido y CTAs para que la experiencia móvil fuera clara y rápida.</p>
+          </article>
+          <article class="case-card">
+            <span aria-hidden="true">03</span>
+            <h3>Cita sin backend</h3>
+            <p>Facilitar la solicitud de cita sin calendario online, base de datos ni cambios operativos internos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-solution" id="solucion">
+      <div class="case-container case-two-col">
+        <div>
+          <p class="case-kicker">Solución</p>
+          <h2>Una web sobria que mejora el contacto sin cambiar el trabajo interno.</h2>
+        </div>
+        <div class="case-copy">
+          <p>Se diseñó una web clara, sobria y responsive, centrada en transmitir confianza y hacer fácil el contacto. En lugar de crear un sistema de reservas, se añadió un preparador de mensaje para WhatsApp que ayuda al paciente a enviar una solicitud más completa, manteniendo intacto el proceso interno de la clínica.</p>
+          <ul class="case-list">
+            <li>Rediseño visual completo.</li>
+            <li>Secciones claras: Pepe Soler, equipo, tratamientos, clínica y contacto.</li>
+            <li>Tratamientos, navegación y CTAs preparados para lectura rápida en móvil.</li>
+            <li>CTAs visibles para cita, llamada, email y cómo llegar.</li>
+            <li>Preparador de cita conectado a WhatsApp.</li>
+            <li>Sin backend ni almacenamiento de datos.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-container">
+        <div class="case-shot-grid">
+          <figure class="case-shot">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.56.32.png" alt="Captura de la sección de equipo de Clínica Pepe Soler">
+            <figcaption>Equipo clínico con cards limpias y lectura directa.</figcaption>
+          </figure>
+          <figure class="case-shot">
+            <img src="img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.57.22.png" alt="Captura de la sección clínica y contacto de Clínica Pepe Soler">
+            <figcaption>Sección de clínica y contacto con enlace directo a cómo llegar.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-section--soft case-flow-section">
+      <div class="case-container case-flow-layout">
+        <div class="case-flow-copy">
+          <p class="case-kicker">Flujo de cita</p>
+          <h2>Un preparador de mensaje, no una reserva automática.</h2>
+          <p class="case-flow-text">La solución mejora la calidad del primer contacto sin automatizar la agenda. La clínica recibe mensajes más claros y sigue gestionando las citas manualmente.</p>
+        </div>
+        <figure class="case-flow-demo" aria-label="Video del flujo de solicitud de cita">
+          <div class="case-flow-video-crop">
+            <video autoplay muted loop playsinline preload="metadata" poster="img/Pepe%20Soler%20Case%20Study/assets/Captura%20de%20pantalla%202026-06-17%20a%20las%2013.56.53.png">
+              <source src="img/Pepe%20Soler%20Case%20Study/assets/Pepe.mov" type="video/quicktime">
+              <source src="img/Pepe%20Soler%20Case%20Study/assets/Pepe%20Soler.m4v" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+          <figcaption>Demo real del preparador de cita conectado a WhatsApp.</figcaption>
+        </figure>
+        <ol class="flow-steps">
+          <li>
+            <span aria-hidden="true">1</span>
+            <p>El usuario pulsa “Reservar cita”.</p>
+          </li>
+          <li>
+            <span aria-hidden="true">2</span>
+            <p>Completa motivo, tratamiento orientativo, horario y comentario.</p>
+          </li>
+          <li>
+            <span aria-hidden="true">3</span>
+            <p>WhatsApp se abre con el mensaje preparado.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="case-section case-section--soft" id="tecnica">
+      <div class="case-container">
+        <div class="case-section__head">
+          <p class="case-kicker">Decisiones técnicas</p>
+          <h2>Tecnología suficiente para el problema real.</h2>
+        </div>
+        <div class="tech-grid">
+          <article>React + Vite para componentizar secciones y estados interactivos.</article>
+          <article>CSS custom responsive para controlar layout, ritmo y adaptación móvil.</article>
+          <article>Modal de cita sin backend, sin base de datos y sin reservas automáticas.</article>
+          <article>WhatsApp deep links para enviar el mensaje preparado al canal que ya usa el cliente.</article>
+          <article>Eliminación del iframe de Google Maps para reducir carga.</article>
+          <article>Enlace directo a Google Maps para “Cómo llegar”.</article>
+          <article>Menú móvil, CTA flotante y jerarquía preparada para escaneo rápido.</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-result">
+      <div class="case-container case-two-col">
+        <div>
+          <p class="case-kicker">Resultado</p>
+          <h2>Una mejora digital compatible con la forma real de trabajar del cliente.</h2>
+        </div>
+        <div class="case-copy">
+          <p>El resultado es una web más moderna, rápida y útil para pacientes, con una experiencia de contacto más clara. El cliente mantiene su flujo de trabajo manual, pero la web ahora reduce fricción y estructura mejor las solicitudes de cita.</p>
+          <ul class="case-list">
+            <li>Presencia digital más profesional.</li>
+            <li>Mejor experiencia móvil.</li>
+            <li>Solicitudes de cita más completas.</li>
+            <li>Sin complejidad operativa añadida.</li>
+            <li>Solución adaptada al contexto real del cliente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-close">
+      <div class="case-container case-close__inner">
+        <p class="case-kicker">Proyecto final</p>
+        <h2>Clínica Pepe Soler</h2>
+        <div class="case-actions">
+          <a href="https://clinica-pepe-soler.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Ver web</a>
+          <a href="index.html#proyectos" class="btn-secondary">Volver a proyectos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
+    });
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('is-open');
+      navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('is-open');
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-label', 'Abrir menú');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Respetar la preferencia de menos movimiento: no reproducir el vídeo en bucle
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video[autoplay]').forEach((video) => {
+        video.removeAttribute('autoplay');
+        video.setAttribute('controls', '');
+        video.pause();
+      });
+    }
+  </script>
+</body>
+</html>
