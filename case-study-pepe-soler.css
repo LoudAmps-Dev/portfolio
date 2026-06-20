@@ -1630,7 +1630,8 @@
 }
 
 .phone-frame img {
-  aspect-ratio: 9 / 14.35;
+  display: block;
+  aspect-ratio: 1179 / 2249;
   object-fit: cover;
   object-position: top center;
 }
@@ -1684,13 +1685,19 @@
 }
 
 @media (max-width: 720px) {
+  .case-hero__media {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .phone-frame {
-    width: min(136px, 100%);
+    width: clamp(150px, 48vw, 190px);
+    margin: 0 auto 1rem;
     padding: 1.25rem .36rem 1.15rem;
   }
 
   .phone-frame img {
-    aspect-ratio: 9 / 14.1;
+    aspect-ratio: 1179 / 2249;
   }
 
   .case-flow-demo {
