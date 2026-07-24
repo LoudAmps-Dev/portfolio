@@ -223,6 +223,19 @@
   box-shadow: 0 22px 38px rgba(35,105,95,0.16);
 }
 
+.proyecto-card--piedad .proyecto-img {
+  background:
+    radial-gradient(circle at 80% 16%, rgba(200,90,140,0.28), transparent 28%),
+    linear-gradient(135deg, #3a1830, #6b2a52 56%, #2a1424);
+}
+
+.proyecto-card--piedad .proyecto-img img {
+  object-position: top center;
+  border-color: rgba(255,255,255,0.16);
+  background: #2a1424;
+  box-shadow: 0 22px 38px rgba(107,42,82,0.3);
+}
+
 .proyecto-card--riffs .proyecto-img {
   background:
     radial-gradient(circle at 22% 18%, rgba(24,169,153,0.28), transparent 28%),
